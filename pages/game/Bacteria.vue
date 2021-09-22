@@ -303,15 +303,10 @@ export default {
       data: null
     };
   },
-  async beforeRouteEnter(to, from, next) {
-    next((vm) =>
-      vm.api.get("/api/bacteria.json").then((res) => (vm.data = res.data))
-    );
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/bacteria.json`)
+    return { data }
   },
-  async beforeRouteUpdate() {
-    const req = await this.api.get("/api/bacteria.json");
-    this.data = req.data;
-  }
 };
 </script>
 

@@ -28,14 +28,9 @@ export default {
       data: null,
     };
   },
-  async beforeRouteEnter(to, from, next) {
-    next((vm) =>
-      vm.api.get("/api/topic.json").then((res) => (vm.data = res.data))
-    );
-  },
-  async beforeRouteUpdate() {
-    const req = await this.api.get("/api/topic.json");
-    this.data = req.data;
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/topic.json`)
+    return { data }
   },
   computed: {
     ...mapGetters("auth", ["authenticated"]),

@@ -65,15 +65,10 @@ export default {
       data: null
     };
   },
-  async beforeRouteEnter(to, from, next) {
-    next((vm) =>
-      vm.api.get("/api/bbs.json").then((res) => (vm.data = res.data))
-    );
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/bbs.json`)
+    return { data }
   },
-  async beforeRouteUpdate() {
-    const req = await this.api.get("/api/bbs.json");
-    this.data = req.data;
-  }
 };
 </script>
 <style>

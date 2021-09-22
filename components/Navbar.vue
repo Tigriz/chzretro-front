@@ -43,7 +43,6 @@
               to="/login"
               id="connect"
               class="flex centered"
-              @click="login"
             >
               <img
                 draggable="false"
@@ -198,9 +197,9 @@ export default {
       this.$router.push(this.$route.path == '/' ? '/login' : this.$route.path)
     },
   },
-  created() {
+  /*created() {
     document.body.className = 'h' + this.date.getHours()
-  },
+  },*/
 }
 </script>
 <style  scoped>

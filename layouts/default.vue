@@ -1,7 +1,6 @@
 <template>
   <div>
-    <span>Salut</span>
-    <ProgressBar />
+    <!--<ProgressBar />-->
     <Navbar />
     <Nuxt />
     <Footer />

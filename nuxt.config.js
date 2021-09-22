@@ -41,6 +41,7 @@ export default {
     '@nuxtjs/axios',
     //'nuxt-lazy-load',
     '@nuxtjs/i18n',
+    'mitt'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

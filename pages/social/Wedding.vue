@@ -53,14 +53,9 @@ export default {
       data: null,
     }
   },
-  async beforeRouteEnter(to, from, next) {
-    next((vm) =>
-      vm.api.get('/api/wedding.json').then((res) => (vm.data = res.data))
-    )
-  },
-  async beforeRouteUpdate() {
-    const req = await this.api.get('/api/wedding.json')
-    this.data = req.data
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/member.json`)
+    return { data }
   },
   computed: {
     formatDate() {

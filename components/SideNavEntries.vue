@@ -1,18 +1,20 @@
 <template>
   <div>
-    <nuxt-link
+    <router-link
       :to="entry.url"
       class="list"
-      v-for="(entry, i) of this.filteredEntries(entry)"
+      v-for="(entry, i) of sideNavEntries.filter(
+        (entry) => entry.section == section
+      )"
       :key="i"
     >
       <img
-        src="~/assets/img/puce.svg"
+        src="@/assets/img/puce.svg"
         alt="Puce"
         draggable="false"
         @contextmenu.prevent
       />&nbsp;{{ $t(entry.label) }}
-    </nuxt-link>
+    </router-link>
   </div>
 </template>
 <script>
@@ -22,11 +24,6 @@ export default {
     section: {
       required: false,
       type: String,
-    },
-  },
-  computed: {
-    filteredEntries(el) {
-      this.sideNavEntries.filter((entry) => entry.section == this.section)
     },
   },
   data() {
