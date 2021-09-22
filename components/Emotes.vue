@@ -189,7 +189,7 @@ export default {
   name: "Emotes",
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .pink-icon {
   display: inline;
 }

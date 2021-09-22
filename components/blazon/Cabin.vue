@@ -183,12 +183,12 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 .blazon {
   transform: scale(1.5);
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .container-blz {
   flex-direction: column;
   align-items: center;
@@ -259,7 +259,7 @@ export default {
   }
 }
 
-// Chest
+/* Chest */
 .chest {
   max-height: 177px;
   overflow-y: auto;

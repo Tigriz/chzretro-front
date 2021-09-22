@@ -81,7 +81,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .btn {
   cursor: pointer;
   width: 100%;

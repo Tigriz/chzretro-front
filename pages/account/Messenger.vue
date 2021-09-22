@@ -34,5 +34,5 @@ export default {
   }
 };
 </script>
-<style lang="scss"></style>
-<style lang="scss" scoped></style>
+<style ></style>
+<style  scoped></style>

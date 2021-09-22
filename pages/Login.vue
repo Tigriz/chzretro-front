@@ -21,9 +21,9 @@
     <template #right-column
       ><Card color="blue" top v-if="data">
         <template #header
-          ><router-link to="/online"
+          ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
-            {{ $t("connecteds", data.connected) }}</router-link
+            {{ $t("connecteds", data.connected) }}</nuxt-link
           ></template
         >
         {{ data.members }} {{ $t("members.text", data.members) }} <br />
@@ -65,7 +65,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 .packs .card-btn {
   background: linear-gradient(
     to bottom,
@@ -75,7 +75,7 @@ export default {
   );
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .login-form {
   justify-content: center;
 }

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/i18n": "^7.0.3",
     "core-js": "^3.15.1",
     "date-fns": "^2.24.0",
     "dompurify": "^2.3.3",
@@ -21,7 +22,8 @@
     "lodash.random": "^3.2.0",
     "marked": "^3.0.4",
     "nuxt": "^2.15.7",
-    "v-lazy-image": "^2.0.1",
+    "nuxt-lazy-load": "^1.2.7",
+    "sass": "^1.42.1",
     "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {

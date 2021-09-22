@@ -17,10 +17,10 @@
       </td>
       <td class="row1" width="100%" height="50" align="left">
         <span class="forumlink">
-          <router-link
+          <nuxt-link
             :to="$route.params.id + '/' + topic.id"
             class="forumlink"
-            >{{ topic.title }}</router-link
+            >{{ topic.title }}</nuxt-link
           >
         </span>
       </td>
@@ -43,7 +43,7 @@
         {{ formatDate }}<br />
         <User :user="topic.last_msg.author" />
         &nbsp;»&nbsp;
-        <router-link
+        <nuxt-link
           :to="$route.params.id + '/' + topic.id + '#' + topic.last_msg.msgid"
           ><img
             draggable="false"
@@ -51,7 +51,7 @@
             :src="require(`~/assets/img/bbs/msg${topic.new ? '_new' : ''}.svg`)"
             alt="Voir le dernier message"
             title="Voir le dernier message"
-        /></router-link>
+        /></nuxt-link>
       </td>
     </tr>
     <tr v-if="separator">

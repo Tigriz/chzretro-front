@@ -2,7 +2,7 @@
   <Container>
     <template #left-column
       ><Card color="blue" top>
-        <router-link to="/levels">
+        <nuxt-link to="/levels">
           <div class="level fullwidth">
             {{ $t("level") }}
             <div class="number" v-if="data">
@@ -15,7 +15,7 @@
                 width="19"
                 height="21"
                 :src="require(`~/assets/img/number/${number}.svg`)"
-              /> </div></div></router-link
+              /> </div></div></nuxt-link
         ><br />
         <div class="flex col fullwidth">
           <SideNavEntries section="account"/></div></Card

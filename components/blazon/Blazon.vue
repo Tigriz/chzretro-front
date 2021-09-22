@@ -49,7 +49,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .blazon {
   position: relative;
   text-align: left;

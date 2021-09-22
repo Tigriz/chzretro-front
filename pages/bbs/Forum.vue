@@ -93,7 +93,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .columns {
   column-count: 1;
 }

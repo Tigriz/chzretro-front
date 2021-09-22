@@ -10,8 +10,8 @@
       <Rules bot />
     </template>
     <span class="pink justified">
-      <router-link to="/bbs" class="pink"
-        >» Retour à l'annuaire</router-link
+      <nuxt-link to="/bbs" class="pink"
+        >» Retour à l'annuaire</nuxt-link
       > </span
     ><br />
     <Card class="member" :class="[this.data.gender]" v-if="data">
@@ -194,7 +194,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 .card {
   background-size: cover;
 }
@@ -206,7 +206,7 @@ export default {
   background-image: url(../../assets/img/member/header_fille.gif);
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .member {
   overflow: hidden;
 }

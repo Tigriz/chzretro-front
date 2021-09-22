@@ -37,7 +37,7 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style  scoped>
 footer {
   margin-top: 12px;
   padding: 0 10px;

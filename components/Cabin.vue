@@ -337,7 +337,7 @@
               class="arrow green jitter"
               src="~/assets/img/arrow.svg"/></template
           >Sauver</Button
-        ><router-link :to="`/member/${data.id}`">
+        ><nuxt-link :to="`/member/${data.id}`">
           <Button type="button"
             ><template #prepend
               ><img
@@ -348,7 +348,7 @@
                 height="24"
                 src="~/assets/img/icon/profile.svg"/></template
             >Fiche</Button
-          ></router-link
+          ></nuxt-link
         >
       </div>
     </form>
@@ -357,14 +357,12 @@
 <script>
 import Tiz from "@/components/Tiz.vue";
 import Emotes from "@/components/Emotes.vue";
-import VLazyImage from "v-lazy-image";
 
 export default {
   name: "Cabin",
   components: {
     Tiz,
-    Emotes,
-    VLazyImage
+    Emotes
   },
   data() {
     return {
@@ -398,7 +396,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 .cabin-scene .tiz {
   position: relative;
   z-index: 3;
@@ -406,7 +404,7 @@ export default {
   transform: scale(1.8);
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .container-acc {
   flex-direction: column;
   align-items: center;
@@ -630,7 +628,6 @@ h3 {
   }
 }
 
-// Chest
 .chest {
   max-height: 177px;
   overflow-y: auto;

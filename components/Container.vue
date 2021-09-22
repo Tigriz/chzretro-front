@@ -18,7 +18,7 @@
     </div>
   </div>
 </template>
-<style lang="scss" scoped>
+<style  scoped>
 .row {
   padding: 0 12px;
   width: 100%;

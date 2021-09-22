@@ -17,8 +17,8 @@
       Les derniers membres qui ont rejoint l'archipel !
 
       <br />
-      <router-link to="/annuaire"
-        >Voir la liste des nouveaux arrivants</router-link
+      <nuxt-link to="/annuaire"
+        >Voir la liste des nouveaux arrivants</nuxt-link
       >
     </Card>
     <br />
@@ -30,7 +30,7 @@
       Les membres les plus populaire de l'archipel !
 
       <br />
-      <router-link to="/popu">Voir la page popularité</router-link>
+      <nuxt-link to="/popu">Voir la page popularité</nuxt-link>
     </Card>
     <br />
     <Card filename="wedding.gif" color="blue">
@@ -40,7 +40,7 @@
       <br />
       Les derniers mariages célébrés par Guruji
       <br />
-      <router-link to="/wedding">Voir la page des mariages</router-link>
+      <nuxt-link to="/wedding">Voir la page des mariages</nuxt-link>
     </Card>
     <template #right-column
       ><Card color="blue" top>
@@ -88,4 +88,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style  scoped></style>

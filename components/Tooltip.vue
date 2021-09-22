@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style  scoped>
 .tooltip {
   position: relative;
   display: flex;

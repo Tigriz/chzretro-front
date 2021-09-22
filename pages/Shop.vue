@@ -66,12 +66,12 @@ export default {
   },
 };
 </script>
-<style lang="scss">
+<style >
 .menu .pack {
   max-width: calc(25% - var(--gap));
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .pack-preview {
   margin-top: -50px;
 }

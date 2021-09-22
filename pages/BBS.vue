@@ -76,7 +76,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style>
 .symbol-info {
   flex-direction: row;
   justify-content: center;

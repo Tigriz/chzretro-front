@@ -1,10 +1,10 @@
 <template>
   <div :class="{ ellipsis: ellipsis }">
-    <router-link
+    <nuxt-link
       v-if="user.id"
       :to="'/member/' + user.id"
       :style="{ color: user.color }"
-      >{{ user.name }}</router-link
+      >{{ user.name }}</nuxt-link
     >
     <div v-else>{{ user.name }}</div>
     <div v-if="separator">,&nbsp;</div>
@@ -31,7 +31,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 div {
   display: inline-block;
 }

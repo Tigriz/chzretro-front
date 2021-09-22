@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .pack {
   position: relative;
 }

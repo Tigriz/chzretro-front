@@ -9,14 +9,14 @@
           ')',
       }"
     >
-      <router-link to="/"
+      <nuxt-link to="/"
         ><img
           draggable="false"
           @contextmenu.prevent
           alt="Logo Chapatiz Retro"
           id="logo"
           src="../assets/img/logo.svg"
-      /></router-link>
+      /></nuxt-link>
       <div class="login flex centered">
         <div style="margin-top: -10px">
           <User
@@ -39,7 +39,7 @@
             {{ $t('navbar.logout') }}
           </button>
           <button v-else>
-            <router-link
+            <nuxt-link
               to="/login"
               id="connect"
               class="flex centered"
@@ -52,7 +52,7 @@
                 src="../assets/img/icon/login/connect.svg"
               />
               {{ $t('navbar.login') }}
-            </router-link>
+            </nuxt-link>
           </button>
         </div>
         <Tiz
@@ -69,7 +69,7 @@
       </div>
     </div>
     <div id="nav" class="flex">
-      <router-link to="/"
+      <nuxt-link to="/"
         ><button class="nav-btn flex centered">
           <img
             draggable="false"
@@ -79,7 +79,7 @@
             src="~/assets/img/navbar/icon/home.svg"
             style="margin: 2px; padding: 1px"
           /></button
-      ></router-link>
+      ></nuxt-link>
       <a target="_blank" href="/tchat"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
@@ -102,7 +102,7 @@
             src="~/assets/img/arrow.svg"
           /></button
       ></a>
-      <router-link v-if="authenticated" to="/account"
+      <nuxt-link v-if="authenticated" to="/account"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
             <img
@@ -116,9 +116,9 @@
               $t('navbar.account')
             }}</StrokeText>
           </div>
-        </button></router-link
+        </button></nuxt-link
       >
-      <router-link to="/games"
+      <nuxt-link to="/games"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
             <img
@@ -132,9 +132,9 @@
               $t('navbar.games')
             }}</StrokeText>
           </div>
-        </button></router-link
+        </button></nuxt-link
       >
-      <router-link to="/members"
+      <nuxt-link to="/members"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
             <img
@@ -148,9 +148,9 @@
               $t('navbar.members')
             }}</StrokeText>
           </div>
-        </button></router-link
+        </button></nuxt-link
       >
-      <router-link to="/bbs"
+      <nuxt-link to="/bbs"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
             <img
@@ -164,7 +164,7 @@
               $t('navbar.community')
             }}</StrokeText>
           </div>
-        </button></router-link
+        </button></nuxt-link
       >
     </div>
   </div>
@@ -203,7 +203,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .header {
   width: 100%;
   height: 78px;
@@ -296,7 +296,7 @@ export default {
 
 .nav-btn:hover .nav-icon,
 .nav-btn:active .nav-icon,
-#nav a.router-link-exact-active .nav-icon {
+#nav a.nuxt-link-exact-active .nav-icon {
   filter: none;
 }
 
@@ -322,7 +322,7 @@ export default {
 
 .nav-btn:hover,
 .nav-btn:active,
-#nav a.router-link-exact-active .nav-btn {
+#nav a.nuxt-link-exact-active .nav-btn {
   background-image: linear-gradient(
     to bottom,
     #fec9b4,
@@ -336,7 +336,7 @@ export default {
 
 #nav a:first-child .nav-btn:hover,
 #nav a:first-child .nav-btn:active,
-#nav a:first-child.router-link-exact-active .nav-btn {
+#nav a:first-child.nuxt-link-exact-active .nav-btn {
   background-image: radial-gradient(
     ellipse 120% 100% at 50% 0%,
     #fec9b4 0%,
@@ -350,8 +350,8 @@ export default {
 #nav a:first-child .nav-btn:hover,
 #nav a:nth-child(2) .nav-btn:active,
 #nav a:first-child .nav-btn:active,
-#nav a:first-child.router-link-exact-active .nav-btn,
-#nav a:nth-child(2).router-link-exact-active .nav-btn {
+#nav a:first-child.nuxt-link-exact-active .nav-btn,
+#nav a:nth-child(2).nuxt-link-exact-active .nav-btn {
   border-left-color: #f80;
 }
 
@@ -359,8 +359,8 @@ export default {
 #nav a:first-child .nav-btn:hover,
 #nav a:last-child .nav-btn:active,
 #nav a:first-child .nav-btn:active,
-#nav a:last-child.router-link-exact-active .nav-btn,
-#nav a:first-child.router-link-exact-active .nav-btn {
+#nav a:last-child.nuxt-link-exact-active .nav-btn,
+#nav a:first-child.nuxt-link-exact-active .nav-btn {
   border-right-color: #f80;
 }
 
@@ -412,7 +412,7 @@ a:hover {
 
   .nav-btn:hover .nav-text,
   .nav-btn:active .nav-text,
-  #nav a.router-link-exact-active .nav-text {
+  #nav a.nuxt-link-exact-active .nav-text {
     stroke: #d15503;
   }
 

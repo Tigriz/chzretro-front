@@ -35,7 +35,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .modal {
   position: fixed;
   z-index: 3;

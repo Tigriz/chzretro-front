@@ -1,10 +1,10 @@
-// Setting useful variables
+/* Setting useful variables */
 :root {
   --main: 0;
   --gap: 2px;
 }
 
-// Reseting
+/* Reseting */
 * {
   margin: 0;
   padding: 0;
@@ -15,9 +15,9 @@
   outline: none;
 }
 
-// Default font and colors
+/* Default font and colors */
 body {
-  font-family: Helvetica, "Helvetica Fallback", sans-serif;
+  font-family: Helvetica, 'Helvetica Fallback', sans-serif;
   font-weight: normal;
   font-size: 11px;
   color: #284555;
@@ -29,13 +29,14 @@ body {
   overflow-x: hidden;
 }
 
+/*
 @for $i from 0 through 23 {
   .h#{$i} {
     background-image: url(../img/navbar/background/#{$i}.png);
   }
-}
+}*/
 
-// Custom scrollbar (chromium based browsers)s
+/* Custom scrollbar (chromium based browsers)s */
 ::-webkit-scrollbar {
   width: 16px;
   height: 16px;
@@ -61,7 +62,7 @@ body {
   background-color: #f80;
 }
 
-// Custom selection
+/* Custom selection */
 ::selection {
   background-color: #f80;
   color: #fff;
@@ -70,7 +71,7 @@ body {
     0.7px -0.7px 0 #d15503, -0.7px 0.7px 0 #d15503;
 }
 
-// Default tags
+/* Default tags */
 a {
   text-decoration: none;
   font-weight: bold;
@@ -109,11 +110,11 @@ h2 {
   font-size: 14px;
 }
 
-img[src*="puce"] {
+img[src*='puce'] {
   height: 17px;
 }
 
-img[src*="/emoticon/"] {
+img[src*='/emoticon/'] {
   object-fit: none;
   height: 32px;
   width: 32px;
@@ -145,9 +146,9 @@ table:not(.bbs) tr:nth-child(2n + 1) {
   background: #004e8422 !important;
 }
 
-// App width
+/* App width */
 @media (min-width: 800px) {
-  #app {
+  #__nuxt {
     width: 800px;
     margin: auto;
   }
@@ -164,9 +165,9 @@ button {
   border: 0;
 }
 
-// Custom classes
+/* Custom classes */
 .pink-icon::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 23.452px;
   height: 23.45px;
@@ -219,7 +220,7 @@ button {
   background: #78aadb;
 }
 
-input:not([type="checkbox"]).btn-md,
+input:not([type='checkbox']).btn-md,
 textarea.btn-md {
   width: 100%;
   padding: 4px;
@@ -239,7 +240,7 @@ textarea.btn-md {
 
 .btn-md:hover,
 .btn-md:active,
-input:not([type="checkbox"]).btn-md:focus,
+input:not([type='checkbox']).btn-md:focus,
 textarea.btn-md:focus {
   border-color: #f80;
   box-shadow: 0 1px #d15503;
@@ -397,7 +398,7 @@ table.bbs {
   }
 }
 
-// Atomic classes
+/*  Atomic classes */
 .pointer {
   cursor: pointer;
 }
@@ -422,7 +423,7 @@ table.bbs {
   text-align: justify;
 }
 
-// Animations
+/* Animations */
 @keyframes jitter {
   0% {
     transform: rotateZ(-25deg);

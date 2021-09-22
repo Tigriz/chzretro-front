@@ -99,7 +99,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .groups {
   text-align: center;
 }

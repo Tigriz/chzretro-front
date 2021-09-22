@@ -10,13 +10,11 @@
       <Rules bot />
     </template>
     <span class="pink justified">
-      <router-link to="/bbs" class="pink"
-        >» Retour à l'annuaire</router-link
+      <nuxt-link to="/bbs" class="pink"
+        >» Retour à l'annuaire</nuxt-link
       > </span
     ><br />
-    <Card>
-      Mariage
-    </Card>
+    <Card> Mariage </Card>
     <template #right-column
       ><Card color="blue" top>
         <template #header> Records ! </template>
@@ -36,45 +34,45 @@
         match nuls: <br />
         20CeNt avec 1077 match nuls ! <br /> </Card
     ></template>
+    <modal />
   </Container>
-  <modal />
 </template>
 
 <script>
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
-import Modal from "@/components/Modal.vue";
+import { format } from 'date-fns'
+import { fr } from 'date-fns/locale'
+import Modal from '@/components/Modal.vue'
 
 export default {
-  name: "Wedding",
+  name: 'Wedding',
   components: {
-    Modal
+    Modal,
   },
   data() {
     return {
-      data: null
-    };
+      data: null,
+    }
   },
   async beforeRouteEnter(to, from, next) {
     next((vm) =>
-      vm.api.get("/api/wedding.json").then((res) => (vm.data = res.data))
-    );
+      vm.api.get('/api/wedding.json').then((res) => (vm.data = res.data))
+    )
   },
   async beforeRouteUpdate() {
-    const req = await this.api.get("/api/wedding.json");
-    this.data = req.data;
+    const req = await this.api.get('/api/wedding.json')
+    this.data = req.data
   },
   computed: {
     formatDate() {
-      return format(new Date(this.data.status.date), "PPP à p", {
+      return format(new Date(this.data.status.date), 'PPP à p', {
         locale: fr,
-        addSuffix: true
-      });
-    }
-  }
-};
+        addSuffix: true,
+      })
+    },
+  },
+}
 </script>
-<style lang="scss">
+<style >
 .card {
   background-size: cover;
 }
@@ -86,7 +84,7 @@ export default {
   background-image: url(../../assets/img/member/header_fille.gif);
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .member {
   overflow: hidden;
 }
@@ -102,7 +100,7 @@ export default {
 }
 
 .member-header {
-  font-family: "Chimboz Heavy";
+  font-family: 'Chimboz Heavy';
   color: #fff;
   font-size: 20px;
   text-shadow: 2px 1px #0008;
@@ -157,7 +155,7 @@ export default {
 
 .icon {
   display: inline-flex;
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
   flex-wrap: wrap;
   justify-content: center;
@@ -169,7 +167,7 @@ export default {
 }
 
 .online {
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
   color: #fff;
   justify-content: center;

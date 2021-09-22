@@ -168,13 +168,13 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 .fullwidth {
   width: calc(100% + 34px) !important;
   margin-left: -17px;
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 .card {
   border-radius: 12px;
   width: 100%;
@@ -194,7 +194,6 @@ export default {
 
 img {
   display: block;
-  width: 100%;
 }
 
 img + .card,

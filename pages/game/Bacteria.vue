@@ -10,46 +10,46 @@
     </template>
     <Card filename="bacteria.gif" justified>
       <div class="flex centered hstack">
-        <router-link to="#records" class="btn-sm blue-bg"
+        <nuxt-link to="#records" class="btn-sm blue-bg"
           ><img
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
-          />&nbsp;Les Records</router-link
+          />&nbsp;Les Records</nuxt-link
         >
-        <router-link to="#best" class="btn-sm blue-bg"
+        <nuxt-link to="#best" class="btn-sm blue-bg"
           ><img
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
-          />&nbsp;Les Meilleurs</router-link
+          />&nbsp;Les Meilleurs</nuxt-link
         >
-        <router-link to="#worst" class="btn-sm blue-bg"
+        <nuxt-link to="#worst" class="btn-sm blue-bg"
           ><img
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
-          />&nbsp;Les Pires</router-link
+          />&nbsp;Les Pires</nuxt-link
         >
-        <router-link to="#groups" class="btn-sm blue-bg"
+        <nuxt-link to="#groups" class="btn-sm blue-bg"
           ><img
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
-          />&nbsp;Les Groupes</router-link
+          />&nbsp;Les Groupes</nuxt-link
         >
-        <router-link to="#tutorial" class="btn-sm pink-bg">
+        <nuxt-link to="#tutorial" class="btn-sm pink-bg">
           <img
             draggable="false"
             @contextmenu.prevent
             alt="Help icon"
             src="~/assets/img/icon/help.png"
           />&nbsp;Comment jouer&nbsp;?
-        </router-link>
+        </nuxt-link>
       </div>
       <br />
       <img
@@ -315,7 +315,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .fullwidth.light {
   background: #eef5fa;
   padding: 2px 0;

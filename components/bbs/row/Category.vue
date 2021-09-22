@@ -32,9 +32,9 @@
       </td>
       <td align="left" width="100%">
         <span class="forumlink">
-          <router-link :to="'/bbs/' + bbs.id" class="forumlink pink">{{
+          <nuxt-link :to="'/bbs/' + bbs.id" class="forumlink pink">{{
             bbs.name
-          }}</router-link
+          }}</nuxt-link
           ><br />
         </span>
         <span class="genmed">{{ bbs.desc }}<br /> </span
@@ -59,7 +59,7 @@
         {{ formatDate(bbs.last_msg.date) }}<br />
         <User :user="bbs.last_msg.author" />
         &nbsp;»&nbsp;
-        <router-link
+        <nuxt-link
           :to="
             '/bbs/' +
               bbs.id +
@@ -74,7 +74,7 @@
             :src="require(`~/assets/img/bbs/msg${bbs.new ? '_new' : ''}.svg`)"
             alt="Voir le dernier message"
             title="Voir le dernier message"
-        /></router-link>
+        /></nuxt-link>
       </td>
     </tr>
     <tr v-if="index != category.bbs.length - 1">
@@ -120,7 +120,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .category th {
   padding: 0 5px;
   color: #6090be;

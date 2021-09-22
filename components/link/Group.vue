@@ -1,8 +1,8 @@
 <template>
   <div>
-    <router-link :to="'/group/' + group.id" :style="{ color: group.color }">{{
+    <nuxt-link :to="'/group/' + group.id" :style="{ color: group.color }">{{
       group.name
-    }}</router-link>
+    }}</nuxt-link>
     <div v-if="separator">,&nbsp;</div>
   </div>
 </template>
@@ -22,7 +22,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 div {
   display: inline;
 }

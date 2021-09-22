@@ -24,13 +24,13 @@
       les Kamais, fameuse bactéries vertes mentholée ! <b>LE</b> jeu de
       Stratégie incontournable sur l'archipel !<br />
       <br />
-      <router-link class="btn-sm pink-bg" to="/games/bacteria">
+      <nuxt-link class="btn-sm pink-bg" to="/games/bacteria">
         <img
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"
         />&nbsp;Comment jouer&nbsp;?
-      </router-link>
+      </nuxt-link>
     </Card>
     <br />
     <Card filename="patojdur_blue.gif" :height="56" color="blue" justified>
@@ -48,13 +48,13 @@
       haute en couleur ! Seul les plus rapides entreront dans la légende !
       <br />
       <br />
-      <router-link class="btn-sm pink-bg" to="/games/patojdur">
+      <nuxt-link class="btn-sm pink-bg" to="/games/patojdur">
         <img
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"
         />&nbsp;Comment jouer&nbsp;?
-      </router-link>
+      </nuxt-link>
     </Card>
     <br />
     <Card filename="mazo_blue.gif" :height="52" color="blue" justified>
@@ -72,13 +72,13 @@
       suspens insoutenable ! Il va falloir garder son sang froid et s'armer de
       patience, pour rivaliser avec les meilleurs !<br />
       <br />
-      <router-link class="btn-sm pink-bg" to="/games/mazo">
+      <nuxt-link class="btn-sm pink-bg" to="/games/mazo">
         <img
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"
         />&nbsp;Comment jouer&nbsp;?
-      </router-link>
+      </nuxt-link>
     </Card>
     <template #right-column
       ><Card color="blue" top>

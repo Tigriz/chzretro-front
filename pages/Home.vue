@@ -2,9 +2,9 @@
   <Container>
     <template #left-column>
       <Card color="blue" top>
-        <router-link to="/levels" v-if="data">
+        <nuxt-link to="/levels" v-if="data">
           <div class="level fullwidth">
-            {{ $t("level") }}
+            {{ $t('level') }}
             <div class="number">
               <img
                 draggable="false"
@@ -18,8 +18,8 @@
               />
             </div>
           </div>
-        </router-link>
-        <router-link to="/mi" v-if="data">
+        </nuxt-link>
+        <nuxt-link to="/mi" v-if="data">
           <div class="messages">
             <div>
               <img
@@ -43,9 +43,9 @@
               class="fullwidth"
             />
           </div>
-          {{ $t("mi.message", data.messages) }}
-        </router-link>
-        <router-link to="/friends" v-if="data">
+          {{ $t('mi.message', data.messages) }}
+        </nuxt-link>
+        <nuxt-link to="/friends" v-if="data">
           <div class="friends">
             <div>
               <img
@@ -69,8 +69,8 @@
               class="fullwidth"
             />
           </div>
-          {{ $t("friends.online", data.friends) }}
-        </router-link>
+          {{ $t('friends.online', data.friends) }}
+        </nuxt-link>
       </Card>
       <br />
       <Bank v-if="data" :credits="data.credits" />
@@ -95,8 +95,8 @@
           style="width: 100%"
         />
       </template>
-      {{ $t("lottery.firstLine") }}<br />
-      {{ $t("lottery.secondLine") }}<br /><br />
+      {{ $t('lottery.firstLine') }}<br />
+      {{ $t('lottery.secondLine') }}<br /><br />
       <RandomNumber :max="30" :value="20" :duration="5000" />
       <br /><br />
       <Button color="orange" @click="handle" class="btn-loto"
@@ -107,7 +107,7 @@
             alt="Lottery handle"
             class="handle"
             ref="handle"
-            src="~/assets/img/lottery/up.svg"/></template
+            src="~/assets/img/lottery/up.svg" /></template
         >Jouer</Button
       ></Card
     ><br />
@@ -159,26 +159,26 @@
     <template #right-column
       ><Card color="blue" top v-if="data">
         <template #header
-          ><router-link to="/online"
+          ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
-            {{ $t("connecteds", data.connected) }}</router-link
+            {{ $t('connecteds', data.connected) }}</nuxt-link
           ></template
         >
-        {{ data.members }} {{ $t("members.text", data.members) }} <br />
-        {{ data.last24 }} {{ $t("members.past", data.last24) }} </Card
+        {{ data.members }} {{ $t('members.text', data.members) }} <br />
+        {{ data.last24 }} {{ $t('members.past', data.last24) }} </Card
       ><br />
       <Card color="blue">
         <template #button>
-          <Button icon="register.svg">{{ $t("help.button") }}</Button>
+          <Button icon="register.svg">{{ $t('help.button') }}</Button>
         </template>
 
-        <router-link to="/help"
+        <nuxt-link to="/help"
           ><img
             draggable="false"
             @contextmenu.prevent
             alt="Puce"
             src="~/assets/img/puce.svg"
-          />{{ $t("help.tip") }}</router-link
+          />{{ $t('help.tip') }}</nuxt-link
         ></Card
       ><br />
       <Card
@@ -198,73 +198,68 @@
         <Pack header="summer.png" footer="summer.png" />
       </Card>
     </template>
+    <!--<metainfo>
+      <template #title="{ content }">Chapatizᵣₑₜᵣₒ {{ $t(content) }}</template>
+    </metainfo>-->
   </Container>
-  <metainfo>
-    <template #title="{ content }">Chapatizᵣₑₜᵣₒ {{ $t(content) }}</template>
-  </metainfo>
 </template>
 
 <script>
-import RandomNumber from "@/components/RandomNumber.vue";
-import Bank from "@/components/Bank.vue";
-import Pack from "@/components/Pack.vue";
+import RandomNumber from '@/components/RandomNumber.vue'
+import Bank from '@/components/Bank.vue'
+import Pack from '@/components/Pack.vue'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Bank,
     RandomNumber,
-    Pack
+    Pack,
   },
   data() {
     return {
-      data: null
-    };
+      data: null,
+    }
   },
-  async beforeRouteEnter(to, from, next) {
-    next((vm) =>
-      vm.api.get("/api/home.json").then((res) => (vm.data = res.data))
-    );
-  },
-  async beforeRouteUpdate() {
-    const req = await this.api.get("/api/home.json");
-    this.data = req.data;
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/home.json`)
+    return { data }
   },
   methods: {
     handle({ currentTarget }) {
-      this.$refs.handle.src = require("~/assets/img/lottery/down.svg");
+      this.$refs.handle.src = require('~/assets/img/lottery/down.svg')
       setTimeout(() => {
-        this.$refs.handle.src = require("~/assets/img/lottery/up.svg");
-        currentTarget.disabled = true;
-      }, 200);
-    }
+        this.$refs.handle.src = require('~/assets/img/lottery/up.svg')
+        currentTarget.disabled = true
+      }, 200)
+    },
   },
   metaInfo: {
-    title: "title.home",
+    title: 'title.home',
     meta: [
       {
-        name: "description",
+        name: 'description',
         content:
-          "ChapatizRetro.com est un site pour s'amuser : tu peux tchater et te faire des amis, créer et faire évoluer ton personnage, jouer seul ou à plusieurs, fonder des groupes et même te marier !"
+          "ChapatizRetro.com est un site pour s'amuser : tu peux tchater et te faire des amis, créer et faire évoluer ton personnage, jouer seul ou à plusieurs, fonder des groupes et même te marier !",
       },
       {
-        property: "og:title",
-        content: "Chapatiz Retro, accueil"
+        property: 'og:title',
+        content: 'Chapatiz Retro, accueil',
       },
       {
-        property: "og:description",
-        content: "Chapatiz Retro, accueil"
+        property: 'og:description',
+        content: 'Chapatiz Retro, accueil',
       },
-      { property: "og:site_name", content: "Chapatiz Retro" },
-      { property: "og:type", content: "website" },
-      { property: "og:image", content: "/announce/summer.png" },
+      { property: 'og:site_name', content: 'Chapatiz Retro' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:image', content: '/announce/summer.png' },
       /*{ property: "og:image:width", content: "192" },
       { property: "og:image:height", content: "192" }*/
-    ]
-  }
-};
+    ],
+  },
+}
 </script>
-<style lang="scss">
+<style>
 .btn-loto .btn-text {
   margin-left: 16px;
 }
@@ -279,7 +274,7 @@ export default {
 }
 </style>
 
-<style lang="scss" scoped>
+<style scoped>
 .gallery {
   flex-wrap: wrap;
 }

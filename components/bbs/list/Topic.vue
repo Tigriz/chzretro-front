@@ -1,46 +1,48 @@
 <template>
-  <span class="pink justified" style="text-align: left">
-    <router-link to="/bbs" class="pink">BBS</router-link> »
-    <router-link :to="'/bbs/' + $route.params.id" class="pink"
-      >BBS</router-link
-    ></span
-  >
-  <router-link
-    :to="'/bbs/' + $route.params.id + '/' + $route.params.topic"
-    class="pink"
-    ><h1 class="justified ellipsis" v-if="messages[0]">
-      {{ messages[0].title }}
-    </h1></router-link
-  >
-  <br />
-  <table class="bbs">
-    <colgroup>
-      <col class="info" width="100" />
-      <col width="100%" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th valign="top" colspan="2" height="25" nowrap="nowrap">
-          « Sujet Précédent Sujet Suivant »
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <Message
-        v-for="(message, index) in messages"
-        :key="message.id"
-        :message="message"
-        :separator="index != messages.length - 1"
-      />
-    </tbody>
-  </table>
+  <div>
+    <span class="pink justified" style="text-align: left">
+      <nuxt-link to="/bbs" class="pink">BBS</nuxt-link> »
+      <nuxt-link :to="'/bbs/' + $route.params.id" class="pink"
+        >BBS</nuxt-link
+      ></span
+    >
+    <nuxt-link
+      :to="'/bbs/' + $route.params.id + '/' + $route.params.topic"
+      class="pink"
+      ><h1 class="justified ellipsis" v-if="messages[0]">
+        {{ messages[0].title }}
+      </h1></nuxt-link
+    >
+    <br />
+    <table class="bbs">
+      <colgroup>
+        <col class="info" width="100" />
+        <col width="100%" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th valign="top" colspan="2" height="25" nowrap="nowrap">
+            « Sujet Précédent Sujet Suivant »
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <Message
+          v-for="(message, index) in messages"
+          :key="message.id"
+          :message="message"
+          :separator="index != messages.length - 1"
+        />
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script>
-import Message from "../row/Message.vue";
+import Message from '../row/Message.vue'
 
 export default {
-  name: "Topic",
+  name: 'Topic',
   components: {
     Message,
   },
@@ -50,9 +52,9 @@ export default {
       type: Array,
     },
   },
-};
+}
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .ellipsis {
   color: #ff3399;
 }

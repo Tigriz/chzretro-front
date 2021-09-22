@@ -1,4 +1,5 @@
 <template>
+<div>
   <tr :id="message.id">
     <td class="info" valign="top">
       <Tiz
@@ -32,7 +33,7 @@
         </div>
       </h2>
       <div class="head flex centered">
-        <router-link :to="'#' + message.id">
+        <nuxt-link :to="'#' + message.id">
           <img
             draggable="false"
             @contextmenu.prevent
@@ -41,7 +42,7 @@
             :src="
               require(`~/assets/img/bbs/msg${message.new ? '_new' : ''}.svg`)
             "
-          /> </router-link
+          /> </nuxt-link
         >&nbsp;
         <h4 class="ellipsis justified title">{{ message.title }}</h4>
         &nbsp;
@@ -60,6 +61,7 @@
   <tr v-if="separator">
     <td colspan="2" style="background: #fff"><hr /></td>
   </tr>
+  </div>
 </template>
 
 <script>
@@ -109,7 +111,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style >
 // Custom checkboxes
 .markdown-body [type="checkbox"]:disabled {
   width: 0;
@@ -149,7 +151,7 @@ export default {
   font-size: 18px;
 }
 </style>
-<style lang="scss" scoped>
+<style  scoped>
 td {
   padding: 6px;
 }

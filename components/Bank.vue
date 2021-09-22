@@ -24,13 +24,13 @@
       ></object>
     </div>
 
-    <router-link to="/bank">
+    <nuxt-link to="/bank">
       {{ $t("credit.youGot") }}<br />
       <AnimatedNumber :number="credits" /><br />
-      {{ $t("credit.text", credits) }} </router-link
+      {{ $t("credit.text", credits) }} </nuxt-link
     ><br /><br />
-    <router-link to="/reflooz" class="btn-route"
-      ><Button color="orange" icon="register.svg">Reflooz</Button></router-link
+    <nuxt-link to="/reflooz" class="btn-route"
+      ><Button color="orange" icon="register.svg">Reflooz</Button></nuxt-link
     ></Card
   >
 </template>
@@ -137,7 +137,7 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
+<style  scoped>
 .bank {
   background: url(../assets/img/bank/bg.svg);
   position: relative;

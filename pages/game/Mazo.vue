@@ -199,7 +199,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .fullwidth.light {
   background: #eef5fa;
   padding: 2px 0;

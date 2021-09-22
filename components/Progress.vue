@@ -41,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .progress {
   height: 6px;
   width: 100%;
