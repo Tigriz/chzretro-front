@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Cabin
       v-if="data"

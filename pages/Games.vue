@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="bacteria_blue.jpg" :height="74" color="blue" justified>
       <img

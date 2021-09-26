@@ -6,7 +6,7 @@
           <SideNavEntries section="games" />
         </div> </Card
       ><br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card justified>
       Chimbi n'était pas un chimbo comme les autres. Il était tout blanc, rond

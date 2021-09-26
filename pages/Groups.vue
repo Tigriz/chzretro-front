@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="group.gif" :height="70" color="blue" justified>
       Envie de former un vrai gang avec tes potes ? Rejoindre une guilde de

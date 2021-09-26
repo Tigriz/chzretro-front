@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="group.gif" :height="70" color="blue">
       <blazon

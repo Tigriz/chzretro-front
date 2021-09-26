@@ -1,7 +1,7 @@
 <template>
   <Container>
     <template #left-column>
-      <Rules top /><br />
+      <SlotRules top /><br />
       <Security />
       <Card
         color="yellow"

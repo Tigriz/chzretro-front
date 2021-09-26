@@ -62,5 +62,7 @@ export default {
     },
   },
 
+  loading: '~/components/ProgressBar.vue',
+
   telemetry: false,
 }

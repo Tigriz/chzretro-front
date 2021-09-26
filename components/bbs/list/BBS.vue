@@ -16,7 +16,7 @@
       </tr>
     </thead>
 
-    <Category v-for="category in boards" :key="category" :category="category">
+    <Category v-for="(category, index) in boards" :key="index" :category="category">
     </Category>
   </table>
 </template>

@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="bacteria.gif" justified>
       <div class="centered">

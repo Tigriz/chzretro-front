@@ -7,7 +7,7 @@
           <SideNavEntries section="Template" />
         </div> </Card
       ><br />
-      <Rules top />
+      <SlotRules top />
       <Security />
     </template>
     <Demo />

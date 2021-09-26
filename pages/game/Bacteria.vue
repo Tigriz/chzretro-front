@@ -6,7 +6,7 @@
           <SideNavEntries section="games" />
         </div> </Card
       ><br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="bacteria.gif" justified>
       <div class="flex centered hstack">

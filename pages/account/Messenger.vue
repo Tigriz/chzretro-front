@@ -6,7 +6,7 @@
           <SideNavEntries section="messenger" />
         </div> </Card
       ><br />
-      <Rules top />
+      <SlotRules top />
       <Security />
     </template>
     <Demo />

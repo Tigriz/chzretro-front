@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <Card filename="new.gif" :height="70" color="blue">
       <div class="flex" style="justify-content: space-evenly">

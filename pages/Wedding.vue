@@ -7,7 +7,7 @@
         </div>
       </Card>
       <br />
-      <Rules bot />
+      <SlotRules bot />
     </template>
     <span class="pink justified">
       <nuxt-link to="/bbs" class="pink"
@@ -72,11 +72,11 @@ async asyncData({ $axios }) {
   background-size: cover;
 }
 .male .card {
-  background-image: url(../../assets/img/member/header_mec.gif);
+  background-image: url(../assets/img/member/header_mec.gif);
 }
 
 .female .card {
-  background-image: url(../../assets/img/member/header_fille.gif);
+  background-image: url(../assets/img/member/header_fille.gif);
 }
 </style>
 <style  scoped>
@@ -123,7 +123,7 @@ async asyncData({ $axios }) {
 .portrait {
   justify-content: center;
   align-items: center;
-  background: url(../../assets/img/member/portrait.png);
+  background: url(../assets/img/member/portrait.png);
   height: 112px;
   width: 104px;
   overflow: hidden;
