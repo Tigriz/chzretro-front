@@ -226,7 +226,7 @@
 <script>
 
 export default {
-  name: "Message",
+  name: "Demo",
   data() {
     return {
       section: 0,
