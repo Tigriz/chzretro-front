@@ -6,7 +6,7 @@
           <div class="level fullwidth">
             {{ $t("level") }}
             <div class="number" v-if="data">
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 :alt="number"

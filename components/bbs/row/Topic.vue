@@ -2,7 +2,7 @@
   <tbody>
     <tr class="topic">
       <td class="row1" align="center" valign="middle" height="50">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           class="icon"
@@ -45,7 +45,7 @@
         &nbsp;»&nbsp;
         <nuxt-link
           :to="$route.params.id + '/' + topic.id + '#' + topic.last_msg.msgid"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             :src="require(`~/assets/img/bbs/msg${topic.new ? '_new' : ''}.svg`)"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       :alt="digit"

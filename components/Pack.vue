@@ -59,15 +59,15 @@
           d="M112.881 117.177s68.252 55.606-51.694 54.492c-7.766 0-48.698 14.453-7.227 36.499 11.099 6.408 86.554 6.93 86.554-62.754.109-7.727-20.202-27.332-27.633-28.237zm-91.447 75.16c10.878 69.593 90.994 28.68 98.349 24.433 31.34-18.094 26.838 7.423 23.808 12.67-28.224 48.886-112.535 11.928-112.535 11.928s-20.529-20.787-9.622-49.031z"
           fill="#a4d0eb"
         />
+        <rect
+          width="166"
+          height="64"
+          x="7"
+          y="269"
+          ry="32"
+          fill="url(#footer)"
+        />
       </g>
-      <rect
-        width="166"
-        height="64"
-        x="7"
-        y="269"
-        ry="32"
-        fill="url(#footer)"
-      />
       <defs>
         <pattern
           id="footer"
@@ -87,11 +87,12 @@
           patternUnits="userSpaceOnUse"
           width="100%"
           height="100%"
+           x="0" y="0"
         >
           <image
             :href="`/pack/header/${header}`"
-            height="100"
-            preserveAspectRatio="xMidYMid slice"
+            x="0" y="0" width="100%" height="100%"
+            preserveAspectRatio="xMinYMin slice"
           />
         </pattern>
       </defs>
@@ -102,25 +103,25 @@
   </div>
 </template>
 <script>
-import Tiz from "@/components/Tiz.vue";
+import Tiz from '@/components/Tiz.vue'
 
 export default {
-  name: "Pack",
+  name: 'Pack',
   components: { Tiz },
   props: {
     header: {
       required: true,
-      type: String
+      type: String,
     },
     footer: {
       required: true,
-      type: String
-    }
-  }
-};
+      type: String,
+    },
+  },
+}
 </script>
 
-<style  scoped>
+<style scoped>
 .pack {
   position: relative;
 }
@@ -162,7 +163,7 @@ export default {
 .pack-content::before {
   position: absolute;
   z-index: 3;
-  content: "";
+  content: '';
   opacity: 1;
   width: 100%;
   height: 100%;
@@ -172,7 +173,7 @@ export default {
 .pack-content::after {
   position: absolute;
   z-index: 3;
-  content: "";
+  content: '';
   opacity: 0;
   width: 50%;
   height: 200%;

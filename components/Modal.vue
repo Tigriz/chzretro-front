@@ -1,7 +1,7 @@
 <template>
   <div class="modal" v-if="!close">
     <div class="modal-content">
-      <img
+      <img loading="lazy"
         style="float: left"
         draggable="false"
         @contextmenu.prevent
@@ -9,7 +9,7 @@
       />
       <p>{{ $t(message) }}</p>
       <button class="pink-icon ok" @click="close = true">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/ok.svg"

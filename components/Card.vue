@@ -1,6 +1,6 @@
 <template>
   <div :class="{ justified: justified }" :style="cssVars">
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       alt="Card header"
@@ -9,7 +9,7 @@
       v-if="filename"
       :src="require(`~/assets/img/card/header/${filename}`)"
     />
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       alt="Card header"
@@ -38,7 +38,7 @@
         <slot></slot>
       </main>
     </div>
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       alt="Card footer"

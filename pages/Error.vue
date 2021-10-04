@@ -2,7 +2,7 @@
   <Container>
     <template #left-column></template>
     <Card color="red">
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         alt="Error icon"

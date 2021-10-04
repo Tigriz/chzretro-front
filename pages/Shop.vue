@@ -9,7 +9,7 @@
     </template>
     <Card color="yellow" filename="shop.svg" :height="109">
       <template #header></template>
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         class="fullwidth pack-preview"

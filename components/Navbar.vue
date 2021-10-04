@@ -10,7 +10,7 @@
       }"
     >
       <nuxt-link to="/"
-        ><img
+        ><img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           alt="Logo Chapatiz Retro"
@@ -30,7 +30,7 @@
             @click="logout"
             v-if="authenticated"
           >
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Disconnect icon"
@@ -44,7 +44,7 @@
               id="connect"
               class="flex centered"
             >
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Connect icon"
@@ -70,7 +70,7 @@
     <div id="nav" class="flex">
       <nuxt-link to="/"
         ><button class="nav-btn flex centered">
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Home icon"
@@ -82,7 +82,7 @@
       <a target="_blank" href="/tchat"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Tchat icon"
@@ -93,7 +93,7 @@
               $t('navbar.play')
             }}</StrokeText>
           </div>
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Arrow icon"
@@ -104,7 +104,7 @@
       <nuxt-link v-if="authenticated" to="/account"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Account icon"
@@ -120,7 +120,7 @@
       <nuxt-link to="/games"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Games icon"
@@ -136,7 +136,7 @@
       <nuxt-link to="/members"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Member icon"
@@ -152,7 +152,7 @@
       <nuxt-link to="/bbs"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Community icon"

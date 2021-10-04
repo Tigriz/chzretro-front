@@ -4,7 +4,7 @@
       <Button color="yellow" icon="register.svg">{{ $t("credit.title") }}</Button>
     </template>
     <div class="bank fullwidth">
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         class="coin"

@@ -34,7 +34,7 @@
       </h2>
       <div class="head flex centered">
         <nuxt-link :to="'#' + message.id">
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Voir le dernier message"
@@ -46,7 +46,7 @@
         >&nbsp;
         <h4 class="ellipsis justified title">{{ message.title }}</h4>
         &nbsp;
-        <img
+        <img loading="lazy"
           alt="Quote button"
           src="https://chapatizretro.com/data/content/images/bbs/icon_quote.png"
         />

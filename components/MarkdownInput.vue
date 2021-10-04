@@ -75,7 +75,7 @@
                   <a href="#" @click.prevent>a</a>
                 </button>
                 <button class="btn-md" @click="formatLink(true)">
-                  <img
+                  <img loading="lazy"
                     draggable="false"
                     @contextmenu.prevent
                     src="~/assets/img/favicon.svg"
@@ -280,7 +280,7 @@ Code block</pre
             <td colspan="2">
               <Button type="submit" color="green"
                 ><template #prepend
-                  ><img
+                  ><img loading="lazy"
                     draggable="false"
                     @contextmenu.prevent
                     alt="Arrow icon"

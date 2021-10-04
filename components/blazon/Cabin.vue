@@ -12,7 +12,7 @@
                 :disabled="data.items[name].indexOf(data.blazon[name]) < 1"
                 @click="$emit('previousItem', name)"
               >
-                <img
+                <img loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
@@ -38,7 +38,7 @@
                 "
                 @click="$emit('nextItem', name)"
               >
-                <img
+                <img loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
@@ -74,7 +74,7 @@
                 "
                 class="item pointer"
               >
-                <img
+                <img loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   :src="
@@ -134,7 +134,7 @@
                       d="M34.1 6.7c-6.934 3.866-14.5 6.984-22.7 9.35.067 15.734 3.083 27.083 9.05 34.05l2.75 2.75c3.2 2.7 7.033 4.434 11.5 5.2l.35-.1-.15-.8.2.55.05.25c15.834-3.2 23.467-17.166 22.9-41.9C49.318 13.985 41.6 10.9 34.9 6.8l-.1-.05-.05-.05Z"
                     />
                   </svg>
-                  <img
+                  <img loading="lazy"
                     v-else
                     draggable="false"
                     @contextmenu.prevent

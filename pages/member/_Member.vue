@@ -51,7 +51,7 @@
               class="online flex centered"
               :class="{ tchat: data.status.room }"
             >
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 src="~/assets/img/tiz/tiz_shape.svg"
@@ -90,7 +90,7 @@
           </p>
           <div class="icon flex centered">
             Chapato
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/icon/gender/male.svg"
@@ -98,13 +98,13 @@
           </div>
           &nbsp;
           <div class="icon flex centered">
-            Niveau<br /><img
+            Niveau<br /><img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               width="19"
               height="21"
               src="~/assets/img/number/2.svg"
-            /><img
+            /><img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               width="19"

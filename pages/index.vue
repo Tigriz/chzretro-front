@@ -6,7 +6,7 @@
           <div class="level fullwidth">
             {{ $t('level') }}
             <div class="number">
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 :alt="number"
@@ -22,7 +22,7 @@
         <nuxt-link to="/mi" v-if="data">
           <div class="messages">
             <div>
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 :alt="number"
@@ -33,7 +33,7 @@
                 :src="require(`~/assets/img/number/pink/${number}.svg`)"
               />
             </div>
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Messages"
@@ -48,7 +48,7 @@
         <nuxt-link to="/friends" v-if="data">
           <div class="friends">
             <div>
-              <img
+              <img loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 :alt="number"
@@ -59,7 +59,7 @@
                 :src="require(`~/assets/img/number/pink/${number}.svg`)"
               />
             </div>
-            <img
+            <img loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Friends"
@@ -75,7 +75,7 @@
       <br />
       <Bank v-if="data" :credits="data.credits" />
     </template>
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       src="/announce/summer.png"
@@ -86,7 +86,7 @@
     <br />
     <Card filename="lottery.png" v-if="data && data.lottery">
       <template #header>
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           width="434"
@@ -101,7 +101,7 @@
       <br /><br />
       <Button color="orange" @click="handle" class="btn-loto"
         ><template #prepend
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Lottery handle"
@@ -114,7 +114,7 @@
     <Card color="yellow" justified>
       <template #subtop>Chapaniouz</template>
       <template #header
-        ><img
+        ><img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
@@ -135,19 +135,19 @@
     <Card>
       <template #subtop>Chaparazzi</template>
       <div class="gallery flex">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="margin: auto"
-        /><img
+        /><img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="margin: auto"
-        /><img
+        /><img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
@@ -173,7 +173,7 @@
         </template>
 
         <nuxt-link to="/help"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Puce"

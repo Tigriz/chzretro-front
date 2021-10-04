@@ -12,7 +12,7 @@
     <Card filename="bacteria.gif" justified>
       <div class="centered">
         <a href="#tutorial" class="btn-sm blue-bg"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
@@ -20,7 +20,7 @@
           />&nbsp;Les Records</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
@@ -28,7 +28,7 @@
           />&nbsp;Les Meilleurs</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
@@ -36,7 +36,7 @@
           />&nbsp;Les Pires</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Caret"
@@ -44,7 +44,7 @@
           />&nbsp;Les Groupes</a
         >
         <a href="#tutorial" class="btn-sm pink-bg">
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Help icon"
@@ -53,7 +53,7 @@
         </a>
       </div>
       <br />
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         src="~/assets/img/game/bacteria/preview.gif"

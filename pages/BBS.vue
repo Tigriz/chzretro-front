@@ -12,7 +12,7 @@
     <Card
       ><div class="columns">
         <div>
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="BBS Verrouillé (nouveaux messages)"
@@ -21,7 +21,7 @@
           />&nbsp;Verrouillé nouveaux messages&nbsp;
         </div>
         <div>
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="BBS Verrouillé"
@@ -30,7 +30,7 @@
           />&nbsp;Verrouillé&nbsp;
         </div>
         <div>
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Nouveaux messages"
@@ -39,7 +39,7 @@
           />&nbsp;Nouveaux messages&nbsp;
         </div>
         <div>
-          <img
+          <img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             alt="Pas de nouveaux messages"

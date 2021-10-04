@@ -8,7 +8,7 @@
       )"
       :key="i"
     >
-      <img
+      <img loading="lazy"
         src="@/assets/img/puce.svg"
         alt="Puce"
         draggable="false"

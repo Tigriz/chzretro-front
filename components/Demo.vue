@@ -43,6 +43,7 @@
           <section :class="{ display: demo == 0 }">
             <div class="demo-info">Bienvenue sur l'archipel</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/0.png"
@@ -51,6 +52,7 @@
           <section :class="{ display: demo == 1 }">
             <div class="demo-info">Crée ton style</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/1.png"
@@ -59,6 +61,7 @@
           <section :class="{ display: demo == 2 }">
             <div class="demo-info">Discute avec tes amis</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/2.png"
@@ -67,6 +70,7 @@
           <section :class="{ display: demo == 3 }">
             <div class="demo-info">Fais ta vie virtuelle</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/3.png"
@@ -75,6 +79,7 @@
           <section :class="{ display: demo == 4 }">
             <div class="demo-info">Rejoins des groupes</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/4.png"
@@ -83,6 +88,7 @@
           <section :class="{ display: demo == 5 }">
             <div class="demo-info">Affronte les joueurs dans des mini-jeux</div>
             <img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               src="~/assets/img/demo/5.png"
@@ -91,17 +97,24 @@
         </div>
       </div>
       <section class="section0" v-if="section == 0">
-        <br /><Button color="green" @click="section = 1"
-          ><template #prepend
-            ><img
-              draggable="false"
-              @contextmenu.prevent
-              alt="Arrow icon"
-              class="arrow green jitter"
-              src="~/assets/img/arrow.svg"/></template
-          >S'inscrire</Button
-        ><br />
-        <Button @click="section = 2">Se connecter</Button>
+        <br />
+        <div @click="section = 1">
+          <Button type="button" color="green"
+            ><template #prepend
+              ><img
+                loading="lazy"
+                draggable="false"
+                @contextmenu.prevent
+                alt="Arrow icon"
+                class="arrow green jitter"
+                src="~/assets/img/arrow.svg" /></template
+            >S'inscrire</Button
+          >
+        </div>
+        <br />
+        <div @click="section = 2">
+          <Button type="button">Se connecter</Button>
+        </div>
       </section>
       <form class="section1" v-if="section == 1" autocomplete="on">
         <br />
@@ -142,16 +155,19 @@
           class="btn-md"
         />
         <div class="flex">
-          <Button color="red" @click="section = 0" type="button">Annuler</Button>
+          <Button color="red" @click="section = 0" type="button"
+            >Annuler</Button
+          >
           <Button color="green"
             ><template #prepend
               ><img
+                loading="lazy"
                 type="submit"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Arrow icon"
                 class="arrow green jitter"
-                src="~/assets/img/arrow.svg"/></template
+                src="~/assets/img/arrow.svg" /></template
             >S'inscrire</Button
           >
         </div>
@@ -160,10 +176,7 @@
         class="section2"
         v-if="section == 2"
         autocomplete="on"
-        @submit.prevent="
-          login();
-          this.$router.push('/');
-        "
+        @submit.prevent="login()"
       >
         <br />
         <div>
@@ -201,15 +214,18 @@
           />
         </div>
         <div class="flex">
-          <Button color="red" @click="section = 0" type="button">Annuler</Button>
+          <Button color="red" @click="section = 0" type="button"
+            >Annuler</Button
+          >
           <Button type="submit" color="green"
             ><template #prepend
               ><img
+                loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Arrow icon"
                 class="arrow green jitter"
-                src="~/assets/img/arrow.svg"/></template
+                src="~/assets/img/arrow.svg" /></template
             >Se connecter</Button
           >
         </div>
@@ -217,6 +233,7 @@
     </div>
     <a href="/tchat" class="try pointer"
       >Je veux juste visiter&nbsp;&nbsp;<img
+        loading="lazy"
         draggable="false"
         @contextmenu.prevent
         src="~/assets/img/puce.svg"
@@ -224,24 +241,24 @@
   </div>
 </template>
 <script>
-
 export default {
-  name: "Demo",
+  name: 'Demo',
   data() {
     return {
       section: 0,
       demo: 0,
-    };
+    }
   },
   mounted() {
-    setInterval(() => (this.demo = (this.demo + 1) % 6), 7000);
+    setInterval(() => (this.demo = (this.demo + 1) % 6), 7000)
   },
   methods: {
     login() {
-      this.$store.dispatch("auth/login");
+      this.$store.dispatch('auth/login');
+      this.$router.push('/')
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 .background {
@@ -258,7 +275,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Chimboz Heavy";
+  font-family: 'Chimboz Heavy';
   font-weight: normal;
   text-decoration: none;
   color: #fff;
@@ -344,7 +361,7 @@ section.display {
 
 .demo-picture section::before {
   position: absolute;
-  content: "";
+  content: '';
   width: 100%;
   height: 100%;
   background-image: radial-gradient(
@@ -358,7 +375,7 @@ section.display {
 
 .demo-picture section::after {
   position: absolute;
-  content: "";
+  content: '';
   opacity: 0;
   top: -75%;
   width: 20%;
@@ -388,7 +405,7 @@ section.display {
   transform: translateY(-100%);
   transition: 0.5s;
   width: 100%;
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
   text-shadow: 0 0 2px #f0009c;
   color: #fff;
@@ -407,7 +424,7 @@ section.display {
 .foreground form input {
   width: calc(50% - 8px);
   margin: 2px;
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
 }
 

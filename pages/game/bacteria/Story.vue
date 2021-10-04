@@ -223,7 +223,7 @@
         class="justified"
       >
         Toutes les infos, les techniques, news.<br />
-        <img
+        <img loading="lazy"
           src="~/assets/img/puce.svg"
           alt="Puce"
           draggable="false"
@@ -232,7 +232,7 @@
         BBS de Bacteria<br />
         <br />
         Lis l'histoire sur Bacteria écrite par Kunu.<br />
-        <img
+        <img loading="lazy"
           src="~/assets/img/puce.svg"
           alt="Puce"
           draggable="false"
@@ -240,7 +240,7 @@
         />
         Bacteria Sanctuary.<br />
         <br />
-        <img
+        <img loading="lazy"
           src="~/assets/img/puce.svg"
           alt="Puce"
           draggable="false"
@@ -248,7 +248,7 @@
         />
         424187 membres joueurs de Bacteria.<br />
         <br />
-        <img
+        <img loading="lazy"
           src="~/assets/img/puce.svg"
           alt="Puce"
           draggable="false"
@@ -256,7 +256,7 @@
         />
         12591547 parties ont été jouées.<br />
         <br />
-        <img
+        <img loading="lazy"
           src="~/assets/img/puce.svg"
           alt="Puce"
           draggable="false"

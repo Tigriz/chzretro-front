@@ -9,14 +9,14 @@
     <Board v-if="data" :topics="data"> </Board>
     <br />
     <button style="text-align: left">
-      <img v-if="!post" @click="post = true" src="~/assets/img/bbs/post.gif" />
+      <img loading="lazy" v-if="!post" @click="post = true" src="~/assets/img/bbs/post.gif" />
     </button>
     <markdown-input isTopic v-if="post" />
     <br />
     <Card>
       <div class="columns">
         <div v-for="(description, i) in iconDescriptions" :key="i">
-          <img
+          <img loading="lazy"
             :src="description.src"
             :alt="description.label"
             :title="description.label"

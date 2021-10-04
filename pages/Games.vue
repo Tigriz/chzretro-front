@@ -10,7 +10,7 @@
       <SlotRules bot />
     </template>
     <Card filename="bacteria_blue.jpg" :height="74" color="blue" justified>
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         src="~/assets/img/game/bacteria/visuel.jpg"
@@ -25,7 +25,7 @@
       Stratégie incontournable sur l'archipel !<br />
       <br />
       <nuxt-link class="btn-sm pink-bg" to="/games/bacteria">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"
@@ -34,7 +34,7 @@
     </Card>
     <br />
     <Card filename="patojdur_blue.gif" :height="56" color="blue" justified>
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         src="~/assets/img/game/patojdur/visuel.jpg"
@@ -49,7 +49,7 @@
       <br />
       <br />
       <nuxt-link class="btn-sm pink-bg" to="/games/patojdur">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"
@@ -58,7 +58,7 @@
     </Card>
     <br />
     <Card filename="mazo_blue.gif" :height="52" color="blue" justified>
-      <img
+      <img loading="lazy"
         draggable="false"
         @contextmenu.prevent
         src="~/assets/img/game/mazo/visuel.jpg"
@@ -73,7 +73,7 @@
       patience, pour rivaliser avec les meilleurs !<br />
       <br />
       <nuxt-link class="btn-sm pink-bg" to="/games/mazo">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           src="~/assets/img/icon/help.png"

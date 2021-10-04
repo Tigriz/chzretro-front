@@ -1,7 +1,7 @@
 <template>
   <button class="btn flex" :style="cssVars">
     <slot name="prepend"></slot>
-    <img
+    <img loading="lazy"
       draggable="false"
       @contextmenu.prevent
       v-if="icon"

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img
+    <img loading="lazy"
       :class="{ win: elapsed > duration }"
       draggable="false"
       @contextmenu.prevent

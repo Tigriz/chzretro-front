@@ -13,6 +13,7 @@
                 @click="$emit('previousItem', name)"
               >
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
@@ -55,11 +56,12 @@
                 :key="name"
                 :disabled="
                   data.items[name].indexOf(data.look[name]) >
-                    data.items[name].length - 2
+                  data.items[name].length - 2
                 "
                 @click="$emit('nextItem', name)"
               >
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
@@ -72,36 +74,45 @@
             <div>
               <button type="button">
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   style="transform: rotate(-90deg)"
-                  :class="{ pushed: up }"/></button
+                  :class="{ pushed: up }"
+                /></button
               ><br /><button type="button">
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   style="transform: scaleX(-1)"
-                  :class="{ pushed: left }"/></button
+                  :class="{ pushed: left }"
+                /></button
               ><button type="button" id="random">
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Random button"
                   title="Randomize look"
-                  src="~/assets/img/home/chaparadio/stop.svg"/></button
+                  src="~/assets/img/home/chaparadio/stop.svg"
+                /></button
               ><button type="button">
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
-                  :class="{ pushed: right }"/></button
+                  :class="{ pushed: right }"
+                /></button
               ><br /><button type="button">
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   alt="Puce"
@@ -122,11 +133,13 @@
               @click="$emit('changeGender', gender)"
             >
               <img
+                loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Male gender"
                 title="Male gender"
-                src="~/assets/img/icon/gender/male.svg"/></button
+                src="~/assets/img/icon/gender/male.svg"
+              /></button
             ><button
               type="button"
               class="pink-icon"
@@ -136,11 +149,13 @@
               @click="$emit('changeGender', gender)"
             >
               <img
+                loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Female gender"
                 title="Female gender"
-                src="~/assets/img/icon/gender/female.svg"/></button
+                src="~/assets/img/icon/gender/female.svg"
+              /></button
             ><button
               type="button"
               class="pink-icon"
@@ -150,6 +165,7 @@
               @click="$emit('changeGender', gender)"
             >
               <img
+                loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Unknown gender"
@@ -163,20 +179,21 @@
         </div>
         <div class="right-acc flex">
           <div class="nav-acc flex">
-            <Button
-              type="button"
-              :class="{ active: profile }"
-              @click="profile = !profile"
-              >{{ $t("myAccount.profileSection") }}</Button
-            ><Button
-              type="button"
-              :class="{ active: !profile }"
+            <div @click="profile = !profile">
+              <Button type="button" :class="{ active: profile }">{{
+                $t('myAccount.profileSection')
+              }}</Button>
+            </div>
+            <div
               @click="
-                profile = !profile;
-                loadInventory = true;
+                profile = !profile
+                loadInventory = true
               "
-              >{{ $t("myAccount.invSection") }}</Button
             >
+              <Button type="button" :class="{ active: !profile }">{{
+                $t('myAccount.invSection')
+              }}</Button>
+            </div>
           </div>
           <div id="profile" v-show="profile">
             <Emotes />
@@ -252,7 +269,7 @@
                         'item1',
                         'body',
                         'item2',
-                        'shoe'
+                        'shoe',
                       ])
                     : (checked = [`${category}`])
                 "
@@ -264,6 +281,7 @@
                 class="item pointer"
               >
                 <img
+                  loading="lazy"
                   draggable="false"
                   @contextmenu.prevent
                   :src="
@@ -291,7 +309,7 @@
                     : [],
                   shoe: this.checked.includes('shoe')
                     ? this.data.items.shoe
-                    : []
+                    : [],
                 }"
                 :key="name"
                 :class="[name]"
@@ -300,7 +318,7 @@
                   type="button"
                   class="item"
                   :class="{
-                    active: this.data.look[name] == item
+                    active: this.data.look[name] == item,
                   }"
                   v-for="item of category"
                   :key="item"
@@ -308,6 +326,7 @@
                   @mouseover="info = name + ' ' + item"
                 >
                   <img
+                    loading="lazy"
                     draggable="false"
                     @contextmenu.prevent
                     v-if="item == 1"
@@ -331,22 +350,24 @@
         <Button color="green" type="submit"
           ><template #prepend
             ><img
+              loading="lazy"
               draggable="false"
               @contextmenu.prevent
               alt="Arrow icon"
               class="arrow green jitter"
-              src="~/assets/img/arrow.svg"/></template
+              src="~/assets/img/arrow.svg" /></template
           >Sauver</Button
         ><nuxt-link :to="`/member/${data.id}`">
           <Button type="button"
             ><template #prepend
               ><img
+                loading="lazy"
                 draggable="false"
                 @contextmenu.prevent
                 alt="Profile icon"
                 style="height: 24px"
                 height="24"
-                src="~/assets/img/icon/profile.svg"/></template
+                src="~/assets/img/icon/profile.svg" /></template
             >Fiche</Button
           ></nuxt-link
         >
@@ -355,14 +376,14 @@
   </Card>
 </template>
 <script>
-import Tiz from "@/components/Tiz.vue";
-import Emotes from "@/components/Emotes.vue";
+import Tiz from '@/components/Tiz.vue'
+import Emotes from '@/components/Emotes.vue'
 
 export default {
-  name: "Cabin",
+  name: 'Cabin',
   components: {
     Tiz,
-    Emotes
+    Emotes,
   },
   data() {
     return {
@@ -372,31 +393,31 @@ export default {
       down: false,
       right: false,
       left: false,
-      info: "",
-      checked: ["item0", "hat", "item1", "body", "item2", "shoe"],
-      gender: this.data.gender
-    };
+      info: '',
+      checked: ['item0', 'hat', 'item1', 'body', 'item2', 'shoe'],
+      gender: this.data.gender,
+    }
   },
   props: {
     data: {
       required: true,
-      type: Object
+      type: Object,
     },
     motto: { type: String },
     website: { type: String },
     centrea: { type: String },
     centreb: { type: String },
     centrec: { type: String },
-    centred: { type: String }
+    centred: { type: String },
   },
   methods: {
     submit() {
-      console.log("Envoyé!");
-    }
-  }
-};
+      console.log('Envoyé!')
+    },
+  },
+}
 </script>
-<style >
+<style>
 .cabin-scene .tiz {
   position: relative;
   z-index: 3;
@@ -404,15 +425,15 @@ export default {
   transform: scale(1.8);
 }
 </style>
-<style  scoped>
+<style scoped>
 .container-acc {
   flex-direction: column;
   align-items: center;
 }
 
-input[type="text"] {
+input[type='text'] {
   text-align: center;
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
   color: #2a5380;
   border: 2px solid;
@@ -424,7 +445,7 @@ input[type="text"] {
 }
 
 li::marker {
-  font-family: "Chimboz Heavy";
+  font-family: 'Chimboz Heavy';
   font-size: 18px;
   color: #2a5380;
 }
@@ -438,7 +459,7 @@ li::marker {
 }
 
 h3 {
-  font-family: "Chimboz Heavy";
+  font-family: 'Chimboz Heavy';
   font-weight: normal;
   color: #fff;
   font-size: 18px;
@@ -501,7 +522,7 @@ h3 {
 .cabin-scene:before {
   background: linear-gradient(to bottom, #240026, transparent);
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   width: 100%;
@@ -512,7 +533,7 @@ h3 {
 }
 .cabin-scene:after {
   position: absolute;
-  content: "";
+  content: '';
   top: 0;
   left: 0;
   width: 100%;
@@ -671,12 +692,12 @@ h3 {
   vertical-align: middle;
 }
 
-.item img[src*="cross"],
-.item img[src*="loading"] {
+.item img[src*='cross'],
+.item img[src*='loading'] {
   transform: translate(0px, 0px);
 }
 
-.item img[src*="loading"] {
+.item img[src*='loading'] {
   width: 100%;
 }
 
@@ -697,7 +718,7 @@ h3 {
 }
 
 .info {
-  font-family: "Pixelated Verdana 10";
+  font-family: 'Pixelated Verdana 10';
   font-size: 10px;
   display: flex;
   justify-content: center;
@@ -726,7 +747,7 @@ h3 {
 }
 
 .gender {
-  font-family: "Chimboz Heavy";
+  font-family: 'Chimboz Heavy';
   color: #fff;
   font-size: 15px;
 }

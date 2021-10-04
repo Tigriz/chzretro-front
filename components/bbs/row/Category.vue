@@ -18,7 +18,7 @@
   >
     <tr class="bbs">
       <td align="center" valign="middle" height="50">
-        <img
+        <img loading="lazy"
           draggable="false"
           @contextmenu.prevent
           :src="
@@ -68,7 +68,7 @@
               '#' +
               bbs.last_msg.msgid
           "
-          ><img
+          ><img loading="lazy"
             draggable="false"
             @contextmenu.prevent
             :src="require(`~/assets/img/bbs/msg${bbs.new ? '_new' : ''}.svg`)"
