@@ -12,10 +12,10 @@
     <Card filename="bacteria_blue.jpg" :height="74" color="blue" justified>
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/bacteria/visuel.jpg"
         alt="Bacteria"
         style="float: left; margin-right: 17px"
+        @contextmenu.prevent
       />
       <h4>Le jeu culte de l'archipel</h4>
       <br />
@@ -27,8 +27,8 @@
       <nuxt-link class="btn-sm pink-bg" to="/game/bacteria">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/icon/help.png"
+          @contextmenu.prevent
         />&nbsp;Comment jouer&nbsp;?
       </nuxt-link>
     </Card>
@@ -36,10 +36,10 @@
     <Card filename="patojdur_blue.gif" :height="56" color="blue" justified>
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/patojdur/visuel.jpg"
         alt="Patojdur"
         style="float: left; margin-right: 17px"
+        @contextmenu.prevent
       />
       <h4>La course la plus humide du web !</h4>
       <br />
@@ -51,8 +51,8 @@
       <nuxt-link class="btn-sm pink-bg" to="/game/patojdur">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/icon/help.png"
+          @contextmenu.prevent
         />&nbsp;Comment jouer&nbsp;?
       </nuxt-link>
     </Card>
@@ -60,10 +60,10 @@
     <Card filename="mazo_blue.gif" :height="52" color="blue" justified>
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/mazo/visuel.jpg"
         alt="Mazo"
         style="float: left; margin-right: 17px"
+        @contextmenu.prevent
       />
       <h4>Fais bosser ta bonne étoile !</h4>
       <br />
@@ -75,8 +75,8 @@
       <nuxt-link class="btn-sm pink-bg" to="/game/mazo">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/icon/help.png"
+          @contextmenu.prevent
         />&nbsp;Comment jouer&nbsp;?
       </nuxt-link>
     </Card>

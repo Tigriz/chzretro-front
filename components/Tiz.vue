@@ -1,69 +1,69 @@
 <template>
   <div class="tiz animated">
     <div class="avatar">
-      <img loading="lazy"
-        v-if="shoe > 0"
+      <img v-if="shoe > 0"
+        loading="lazy"
         class="item shoe1"
         draggable="false"
+        :src="`/avatar/shoe/${shoe}.svg`"
         @contextmenu.prevent
-        :src="`/avatar/shoe/${this.shoe}.svg`"
       />
-      <img loading="lazy"
-        v-if="shoe > 0"
+      <img v-if="shoe > 0"
+        loading="lazy"
         class="item shoe2"
         draggable="false"
+        :src="`/avatar/shoe/${shoe}.svg`"
         @contextmenu.prevent
-        :src="`/avatar/shoe/${this.shoe}.svg`"
       />
       <div class="body-parts">
-        <img loading="lazy"
-          v-if="body > 0"
+        <img v-if="body > 0"
+          loading="lazy"
           class="item body"
           draggable="false"
+          :src="`/avatar/body/${body}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/body/${this.body}.svg`"
         />
-        <img loading="lazy"
-          v-if="emote > 0"
+        <img v-if="emote > 0"
+          loading="lazy"
           class="item emote"
           draggable="false"
+          :src="`/avatar/emote/${emote}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/emote/${this.emote}.svg`"
         />
         <img loading="lazy"
           src="/avatar/hands.svg"
           draggable="false"
           class="item hands"
-          @contextmenu.prevent
           alt="Tiz avatar"
+          @contextmenu.prevent
         />
-        <img loading="lazy"
-          v-if="item2 > 0"
+        <img v-if="item2 > 0"
+          loading="lazy"
           class="item item2"
           draggable="false"
+          :src="`/avatar/item2/${item2}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/item2/${this.item2}.svg`"
         />
-        <img loading="lazy"
-          v-if="item1 > 0"
+        <img v-if="item1 > 0"
+          loading="lazy"
           class="item item1"
           draggable="false"
+          :src="`/avatar/item1/${item1}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/item1/${this.item1}.svg`"
         />
-        <img loading="lazy"
-          v-if="hat > 0"
+        <img v-if="hat > 0"
+          loading="lazy"
           class="item hat"
           draggable="false"
+          :src="`/avatar/hat/${hat}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/hat/${this.hat}.svg`"
         />
-        <img loading="lazy"
-          v-if="item0 > 0"
+        <img v-if="item0 > 0"
+          loading="lazy"
           class="item item0"
           draggable="false"
+          :src="`/avatar/item0/${item0}.svg`"
           @contextmenu.prevent
-          :src="`/avatar/item0/${this.item0}.svg`"
         />
       </div>
     </div>

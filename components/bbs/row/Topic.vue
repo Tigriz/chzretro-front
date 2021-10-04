@@ -4,7 +4,6 @@
       <td class="row1" align="center" valign="middle" height="50">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           class="icon"
           :src="
             require(`~/assets/img/bbs/folder${topic.new ? '_new' : ''}${
@@ -13,6 +12,7 @@
           "
           alt="Ce BBS est verrouillé, tu ne peux pas poster, ni répondre, ni éditer les sujets."
           title="Ce BBS est verrouillé, tu ne peux pas poster, ni répondre, ni éditer les sujets."
+          @contextmenu.prevent
         />
       </td>
       <td class="row1" width="100%" height="50" align="left">
@@ -47,10 +47,10 @@
           :to="$route.params.id + '/' + topic.id + '#' + topic.last_msg.msgid"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             :src="require(`~/assets/img/bbs/msg${topic.new ? '_new' : ''}.svg`)"
             alt="Voir le dernier message"
             title="Voir le dernier message"
+            @contextmenu.prevent
         /></nuxt-link>
       </td>
     </tr>
@@ -63,9 +63,9 @@
 </template>
 
 <script>
-import User from "@/components/link/User.vue";
 import { formatDistance } from "date-fns";
 import { fr } from "date-fns/locale";
+import User from "@/components/link/User.vue";
 
 export default {
   name: "Topic",

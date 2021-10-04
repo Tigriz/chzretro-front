@@ -1,12 +1,12 @@
 <template>
   <button class="btn flex" :style="cssVars">
     <slot name="prepend"></slot>
-    <img loading="lazy"
+    <img v-if="icon"
+      loading="lazy"
       draggable="false"
-      @contextmenu.prevent
-      v-if="icon"
       class="btn-icon"
       :src="require(`~/assets/img/icon/button/${icon}`)"
+      @contextmenu.prevent
     />
     <div class="btn-text">
       <StrokeText><slot></slot></StrokeText>

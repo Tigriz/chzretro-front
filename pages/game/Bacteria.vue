@@ -13,52 +13,52 @@
         <nuxt-link to="#records" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Records</nuxt-link
         >
         <nuxt-link to="#best" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Meilleurs</nuxt-link
         >
         <nuxt-link to="#worst" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Pires</nuxt-link
         >
         <nuxt-link to="#groups" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Groupes</nuxt-link
         >
         <nuxt-link to="#tutorial" class="btn-sm pink-bg">
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Help icon"
             src="~/assets/img/icon/help.png"
+            @contextmenu.prevent
           />&nbsp;Comment jouer&nbsp;?
         </nuxt-link>
       </div>
       <br />
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/bacteria/preview.gif"
         alt="A game of bacteria"
         title="A game of bacteria"
         style="float: left; margin-right: 17px; border: 3px solid #6699cc"
+        @contextmenu.prevent
       />
       <br />
       Bacteria est le jeu ancestral de notre île. Depuis des milliers d'années,
@@ -79,11 +79,11 @@
 
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/bacteria/preview.gif"
         alt="A game of bacteria"
         title="A game of bacteria"
         style="float: left; margin-right: 17px; border: 3px solid #6699cc"
+        @contextmenu.prevent
       />
       Il y a 2 endroits pour jouer: Bacteria débutants et Bacteria Pro Si tu ne
       sais pas comment y aller demande ton chemin !<br />
@@ -93,7 +93,7 @@
       partie démarre ! Attention: Les visiteurs ne peuvent jouer qu'en Bacteria
       débutants, les cabines de Bacteria Pro sont réservées aux membres ! </Card
     ><br />
-    <Card id="records" v-if="data">
+    <Card v-if="data" id="records">
       <template #header>Records !</template>
       <template #subtitle
         >Dans le bon ou le mauvais, ce sont les meilleurs !</template
@@ -122,7 +122,7 @@
         {{ data.records.drawn.record }} match nuls&nbsp;!
       </div>
     </Card>
-    <br /><Card id="best" v-if="data">
+    <br /><Card v-if="data" id="best">
       <template #header>Les 20 plus acharnés de Bacteria !</template>
       <template #subtitle
         >Des heures de phagocytage acharné pour en arriver la...</template
@@ -162,7 +162,7 @@
         </tbody>
       </table>
     </Card>
-    <br /><Card id="worst" v-if="data">
+    <br /><Card v-if="data" id="worst">
       <template #header>Les 20 pires brèles de Bacteria ! </template>
       <template #subtitle>Les meilleurs... en partant du bas !</template>
       <table class="score fullwidth">
@@ -197,7 +197,7 @@
         </tbody>
       </table>
     </Card>
-    <br /><Card id="groups" v-if="data">
+    <br /><Card v-if="data" id="groups">
       <template #header>Les 10 meilleurs groupes de Bacteria !</template>
       <template #subtitle>Plus on est de fous...</template>
       <table class="score fullwidth">
@@ -298,14 +298,14 @@ export default {
     Progress,
     Tooltip
   },
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/bacteria.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/bacteria.json`)
-    return { data }
   },
 };
 </script>

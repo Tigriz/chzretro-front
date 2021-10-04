@@ -18,11 +18,6 @@
 export default {
   name: "Messenger",
   components: {},
-  data() {
-    return {
-      data: null
-    };
-  },
   async beforeRouteEnter(to, from, next) {
     next((vm) =>
       vm.api.get("/api/messenger.json").then((res) => (vm.data = res.data))
@@ -31,6 +26,11 @@ export default {
   async beforeRouteUpdate() {
     const req = await this.api.get("/api/messenger.json");
     this.data = req.data;
+  },
+  data() {
+    return {
+      data: null
+    };
   }
 };
 </script>

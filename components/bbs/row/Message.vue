@@ -36,12 +36,12 @@
         <nuxt-link :to="'#' + message.id">
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Voir le dernier message"
             title="Voir le dernier message"
             :src="
               require(`~/assets/img/bbs/msg${message.new ? '_new' : ''}.svg`)
             "
+            @contextmenu.prevent
           /> </nuxt-link
         >&nbsp;
         <h4 class="ellipsis justified title">{{ message.title }}</h4>
@@ -53,7 +53,7 @@
       </div>
       <hr style="margin: 2px 0" />
       <div class="markdown-body content" v-html="formatMessage"></div>
-      <div class="signature" v-if="message.signature">
+      <div v-if="message.signature" class="signature">
         <i><br />"{{ message.author.signature }}"</i>
       </div>
     </td>
@@ -65,10 +65,10 @@
 </template>
 
 <script>
-import Tiz from "@/components/Tiz.vue";
-import User from "@/components/link/User.vue";
 import { format } from "date-fns";
 import { fr } from "date-fns/locale";
+import Tiz from "@/components/Tiz.vue";
+import User from "@/components/link/User.vue";
 import messageRender from "@/plugins/module/messageRender.js";
 
 export default {
@@ -88,11 +88,6 @@ export default {
       type: Boolean
     }
   },
-  mounted() {
-    if (this.$route.hash) {
-      this.scrollTo(this.$route.hash);
-    }
-  },
   computed: {
     formatMessage() {
       return messageRender(this.message.content);
@@ -102,6 +97,11 @@ export default {
         locale: fr,
         addSuffix: true
       });
+    }
+  },
+  mounted() {
+    if (this.$route.hash) {
+      this.scrollTo(this.$route.hash);
     }
   },
   methods: {

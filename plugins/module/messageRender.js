@@ -54,8 +54,8 @@ const messageRender = function(string) {
 
   // Marked options
   Marked.setOptions({
-    renderer: renderer,
-    highlight: function(code, lang) {
+    renderer,
+    highlight(code, lang) {
       const hljs = require("highlight.js");
       const language = hljs.getLanguage(lang) ? lang : "plaintext";
       return hljs.highlight(code, { language }).value;

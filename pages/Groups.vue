@@ -21,7 +21,7 @@
       par le chef du groupe... A toi de faire tes preuves !
     </Card>
     <br />
-    <Card color="blue" justified v-if="data">
+    <Card v-if="data" color="blue" justified>
       <template #header>Les Groupes Officiels</template>
       <template #subtitle
         >Ce sont les groupes qui participent directement à
@@ -82,14 +82,14 @@ export default {
   components: {
     Group
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/home.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/home.json`)
-    return { data }
   },
 };
 </script>

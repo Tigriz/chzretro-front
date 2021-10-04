@@ -47,14 +47,14 @@ export default {
   components: {
     Blazon
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/home.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/home.json`)
-    return { data }
   },
 };
 </script>

@@ -3,8 +3,8 @@
   <thead>
     <tr
       class="category justified pointer"
-      @click="hide = !hide"
       :class="{ arrow: hide }"
+      @click="hide = !hide"
     >
       <th valign="middle" colspan="5" height="28">
         <a>{{ category.category }}</a>
@@ -20,7 +20,6 @@
       <td align="center" valign="middle" height="50">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           :src="
             require(`~/assets/img/bbs/folder${bbs.new ? '_new' : ''}${
               bbs.locked ? '_lock' : ''
@@ -28,6 +27,7 @@
           "
           alt="Ce BBS est verrouillé, tu ne peux pas poster, ni répondre, ni éditer les sujets."
           title="Ce BBS est verrouillé, tu ne peux pas poster, ni répondre, ni éditer les sujets."
+          @contextmenu.prevent
         />
       </td>
       <td align="left" width="100%">
@@ -70,10 +70,10 @@
           "
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             :src="require(`~/assets/img/bbs/msg${bbs.new ? '_new' : ''}.svg`)"
             alt="Voir le dernier message"
             title="Voir le dernier message"
+            @contextmenu.prevent
         /></nuxt-link>
       </td>
     </tr>
@@ -87,10 +87,10 @@
 </template>
 
 <script>
-import Group from "@/components/link/Group.vue";
-import User from "@/components/link/User.vue";
 import { formatDistance } from "date-fns";
 import { fr } from "date-fns/locale";
+import Group from "@/components/link/Group.vue";
+import User from "@/components/link/User.vue";
 
 export default {
   name: "Category",
@@ -98,16 +98,16 @@ export default {
     Group,
     User,
   },
-  data() {
-    return {
-      hide: false,
-    };
-  },
   props: {
     category: {
       required: true,
       type: Object,
     },
+  },
+  data() {
+    return {
+      hide: false,
+    };
   },
   methods: {
     formatDate(date) {

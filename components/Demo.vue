@@ -5,33 +5,33 @@
         <div class="demo-btn hstack">
           <button
             class="home"
-            @click="demo = 0"
             :class="{ active: demo == 0 }"
+            @click="demo = 0"
           ></button>
           <button
             class="mode"
-            @click="demo = 1"
             :class="{ active: demo == 1 }"
+            @click="demo = 1"
           ></button>
           <button
             class="tchat"
-            @click="demo = 2"
             :class="{ active: demo == 2 }"
+            @click="demo = 2"
           ></button>
           <button
             class="wedding"
-            @click="demo = 3"
             :class="{ active: demo == 3 }"
+            @click="demo = 3"
           ></button>
           <button
             class="group"
-            @click="demo = 4"
             :class="{ active: demo == 4 }"
+            @click="demo = 4"
           ></button>
           <button
             class="bacteria"
-            @click="demo = 5"
             :class="{ active: demo == 5 }"
+            @click="demo = 5"
           ></button>
           <button class="empty"></button>
           <button class="empty"></button>
@@ -45,8 +45,8 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/0.png"
+              @contextmenu.prevent
             />
           </section>
           <section :class="{ display: demo == 1 }">
@@ -54,8 +54,8 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/1.png"
+              @contextmenu.prevent
             />
           </section>
           <section :class="{ display: demo == 2 }">
@@ -63,8 +63,8 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/2.png"
+              @contextmenu.prevent
             />
           </section>
           <section :class="{ display: demo == 3 }">
@@ -72,8 +72,8 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/3.png"
+              @contextmenu.prevent
             />
           </section>
           <section :class="{ display: demo == 4 }">
@@ -81,8 +81,8 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/4.png"
+              @contextmenu.prevent
             />
           </section>
           <section :class="{ display: demo == 5 }">
@@ -90,13 +90,13 @@
             <img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/demo/5.png"
+              @contextmenu.prevent
             />
           </section>
         </div>
       </div>
-      <section class="section0" v-if="section == 0">
+      <section v-if="section == 0" class="section0">
         <br />
         <div @click="section = 1">
           <Button type="button" color="green"
@@ -104,10 +104,10 @@
               ><img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Arrow icon"
                 class="arrow green jitter"
-                src="~/assets/img/arrow.svg" /></template
+                src="~/assets/img/arrow.svg"
+                @contextmenu.prevent /></template
             >S'inscrire</Button
           >
         </div>
@@ -116,7 +116,7 @@
           <Button type="button">Se connecter</Button>
         </div>
       </section>
-      <form class="section1" v-if="section == 1" autocomplete="on">
+      <form v-if="section == 1" class="section1" autocomplete="on">
         <br />
         <input
           required
@@ -155,7 +155,7 @@
           class="btn-md"
         />
         <div class="flex">
-          <Button color="red" @click="section = 0" type="button"
+          <Button color="red" type="button" @click="section = 0"
             >Annuler</Button
           >
           <Button color="green"
@@ -164,17 +164,17 @@
                 loading="lazy"
                 type="submit"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Arrow icon"
                 class="arrow green jitter"
-                src="~/assets/img/arrow.svg" /></template
+                src="~/assets/img/arrow.svg"
+                @contextmenu.prevent /></template
             >S'inscrire</Button
           >
         </div>
       </form>
       <form
-        class="section2"
         v-if="section == 2"
+        class="section2"
         autocomplete="on"
         @submit.prevent="login()"
       >
@@ -214,7 +214,7 @@
           />
         </div>
         <div class="flex">
-          <Button color="red" @click="section = 0" type="button"
+          <Button color="red" type="button" @click="section = 0"
             >Annuler</Button
           >
           <Button type="submit" color="green"
@@ -222,10 +222,10 @@
               ><img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Arrow icon"
                 class="arrow green jitter"
-                src="~/assets/img/arrow.svg" /></template
+                src="~/assets/img/arrow.svg"
+                @contextmenu.prevent /></template
             >Se connecter</Button
           >
         </div>
@@ -235,8 +235,8 @@
       >Je veux juste visiter&nbsp;&nbsp;<img
         loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/puce.svg"
+        @contextmenu.prevent
     /></a>
   </div>
 </template>

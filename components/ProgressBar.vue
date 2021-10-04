@@ -1,6 +1,6 @@
 <!--https://stackabuse.com/lazy-loading-routes-with-vue-router-->
 <template>
-  <div class="loading-container" v-if="loading">
+  <div v-if="loading" class="loading-container">
     <div class="loader" :style="{ width: '100%' }">
       <div class="light animated"></div>
     </div>

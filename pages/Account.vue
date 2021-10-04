@@ -5,16 +5,16 @@
         <nuxt-link to="/levels">
           <div class="level fullwidth">
             {{ $t("level") }}
-            <div class="number" v-if="data">
-              <img loading="lazy"
-                draggable="false"
-                @contextmenu.prevent
-                :alt="number"
-                v-for="number in data.level.toString(10)"
+            <div v-if="data" class="number">
+              <img v-for="number in data.level.toString(10)"
                 :key="number.index"
+                loading="lazy"
+                draggable="false"
+                :alt="number"
                 width="19"
                 height="21"
                 :src="require(`@/assets/img/number/${number}.svg`)"
+                @contextmenu.prevent
               /> </div></div></nuxt-link
         ><br />
         <div class="flex col fullwidth">
@@ -24,6 +24,12 @@
     /></template>
     <Cabin
       v-if="data"
+      v-model:motto="data.motto"
+      v-model:website="data.website"
+      v-model:centrea="data.centres[0]"
+      v-model:centreb="data.centres[1]"
+      v-model:centrec="data.centres[2]"
+      v-model:centred="data.centres[3]"
       :data="data"
       @update-item="(name, item) => (data.look[name] = item)"
       @previous-item="
@@ -33,17 +39,11 @@
       "
       @next-item="
         (name) =>
-          (data.look[name] = this.data.items[name][
+          (data.look[name] = data.items[name][
             data.items[name].indexOf(data.look[name]) + 1
           ])
       "
-      @change-gender="(gender) => (this.data.gender = gender)"
-      v-model:motto="data.motto"
-      v-model:website="data.website"
-      v-model:centrea="data.centres[0]"
-      v-model:centreb="data.centres[1]"
-      v-model:centrec="data.centres[2]"
-      v-model:centred="data.centres[3]"
+      @change-gender="(gender) => (data.gender = gender)"
     />
     <template #right-column>
       <Card color="blue" filename="messages.gif" :width="154" :height="56">
@@ -75,6 +75,10 @@ export default {
     Bank,
     Cabin
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/account.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
@@ -84,10 +88,6 @@ export default {
     submit() {
       console.log("Envoyé!");
     }
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/account.json`)
-    return { data }
   },
 };
 </script>

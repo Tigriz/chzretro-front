@@ -1,8 +1,8 @@
 <template>
   <div class="blazon">
-    <background :primary="primary" :secondary="secondary" :id="shape" />
-    <div class="top"><top :color="primary" :id="top" /></div>
-    <div class="bot"><bot :color="primary" :id="bot" /></div>
+    <background :id="shape" :primary="primary" :secondary="secondary" />
+    <div class="top"><top :id="top" :color="primary" /></div>
+    <div class="bot"><bot :id="bot" :color="primary" /></div>
     <div class="reflection"><reflection :id="shape" /></div>
   </div>
 </template>

@@ -48,14 +48,14 @@ export default {
   components: {
     Modal,
   },
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/member.json`)
+    return { data }
+  },
   data() {
     return {
       data: null,
     }
-  },
-async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/member.json`)
-    return { data }
   },
   computed: {
     formatDate() {

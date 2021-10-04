@@ -5,34 +5,34 @@
     <a href="https://twitter.com/ChapatizRetro" target="_blank"
       ><img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         alt="Twitter follow"
         title="Twitter follow"
-        src="https://img.shields.io/twitter/follow/ChapatizRetro?color=blue&amp;label=Twitter&amp;logo=twitter&amp;style=flat"/></a
+        src="https://img.shields.io/twitter/follow/ChapatizRetro?color=blue&amp;label=Twitter&amp;logo=twitter&amp;style=flat"
+        @contextmenu.prevent/></a
     >&nbsp;
     <a href="https://discord.gg/aYph9u8" target="_blank"
       ><img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         alt="Discord server"
         title="Discord server"
-        src="https://img.shields.io/discord/765491519536496660?label=discord&amp;logo=discord&amp;logoColor=fff"/></a
+        src="https://img.shields.io/discord/765491519536496660?label=discord&amp;logo=discord&amp;logoColor=fff"
+        @contextmenu.prevent/></a
     >&nbsp;
     <a href="http://www.gnu.org/licenses/gpl-3.0" target="_blank"
       ><img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         alt="License GPL v3"
         title="License GPL v3"
-        src="https://img.shields.io/badge/license-GPL%20v3-blue.svg"/></a
+        src="https://img.shields.io/badge/license-GPL%20v3-blue.svg"
+        @contextmenu.prevent/></a
     >&nbsp;
     <a href="https://github.com/Tigriz/chzretro-front" target="_blank"
       ><img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         alt="Front version"
         title="Front version"
         src="https://img.shields.io/github/package-json/v/tigriz/chzretro-front"
+        @contextmenu.prevent
     /></a>
   </footer>
 </template>

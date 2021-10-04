@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="bbs preview" :class="{ display: this.message }">
+    <table class="bbs preview" :class="{ display: message }">
       <colgroup>
         <col width="100" class="info" />
         <col width="100%" />
@@ -15,18 +15,18 @@
       <tbody>
         <Message
           :message="{
-            author: this.user,
-            content: this.message,
+            author: user,
+            content: message,
             date: Date.now(),
             id: 'reply',
             new: true,
-            signature: this.signature,
-            title: this.title,
+            signature: signature,
+            title: title,
           }"
         />
       </tbody>
     </table>
-    <br v-if="this.message" />
+    <br v-if="message" />
     <form @submit.prevent="submit">
       <table class="bbs input">
         <colgroup>
@@ -45,13 +45,13 @@
             <td><b>Sujet</b></td>
             <td>
               <input
+                v-model="title"
                 :required="isTopic"
                 :minlength="isTopic ? '3' : '0'"
                 maxlength="100"
                 name="title"
                 class="btn-md"
                 type="text"
-                v-model="title"
                 placeholder="Titre"
               />
             </td>
@@ -77,10 +77,10 @@
                 <button class="btn-md" @click="formatLink(true)">
                   <img loading="lazy"
                     draggable="false"
-                    @contextmenu.prevent
                     src="~/assets/img/favicon.svg"
                     height="22"
                     style="height: 100%"
+                    @contextmenu.prevent
                   />
                 </button>
                 <select
@@ -235,6 +235,8 @@ Code block</pre
             </td>
             <td>
               <textarea
+                ref="message"
+                v-model="message"
                 placeholder="Message"
                 required
                 minlength="3"
@@ -242,8 +244,6 @@ Code block</pre
                 spellcheck="true"
                 maxlength="60000"
                 class="btn-md"
-                ref="message"
-                v-model="message"
                 @focus="focusHandler"
                 @select="selectionHandler"
               />
@@ -257,18 +257,18 @@ Code block</pre
             </td>
             <td>
               <input
-                type="checkbox"
                 id="markdown"
-                name="markdown"
                 v-model="markdown"
+                type="checkbox"
+                name="markdown"
               />
               <label for="markdown"
                 >&#32;Désactiver le Markdown et les smileys</label
               ><br /><input
-                type="checkbox"
                 id="signature"
-                name="signature"
                 v-model="signature"
+                type="checkbox"
+                name="signature"
               />
               <label for="signature"
                 >&#32;Attacher ma signature (les signatures peuvent être
@@ -282,10 +282,10 @@ Code block</pre
                 ><template #prepend
                   ><img loading="lazy"
                     draggable="false"
-                    @contextmenu.prevent
                     alt="Arrow icon"
                     class="arrow jitter green"
-                    src="~/assets/img/arrow.svg" /></template
+                    src="~/assets/img/arrow.svg"
+                    @contextmenu.prevent /></template
                 >Envoyer</Button
               >
             </td>
@@ -296,13 +296,20 @@ Code block</pre
   </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 import Emotes from '@/components/Emotes.vue'
 import Message from '@/components/bbs/row/Message.vue'
-import { mapState } from 'vuex'
 
 export default {
   name: 'MarkdownInput',
   components: { Emotes, Message },
+  props: {
+    isTopic: {
+      required: false,
+      default: false,
+      type: Boolean,
+    },
+  },
   data() {
     return {
       message: '',
@@ -311,13 +318,6 @@ export default {
       markdown: false,
       selectionRange: [0, 0],
     }
-  },
-  props: {
-    isTopic: {
-      required: false,
-      default: false,
-      type: Boolean,
-    },
   },
   computed: {
     ...mapState('auth', ['user']),

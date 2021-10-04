@@ -53,8 +53,8 @@
             >
               <img loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 src="~/assets/img/tiz/tiz_shape.svg"
+                @contextmenu.prevent
               />&nbsp;<b>En ligne</b>
             </div>
             <b>{{ data.status.room }}</b>
@@ -83,8 +83,8 @@
             Inscrit aux groupes :
             <Group
               v-for="(group, index) of data.groups"
-              :group="group"
               :key="group.id"
+              :group="group"
               :separator="index < data.groups.length - 1"
             />
           </p>
@@ -92,24 +92,24 @@
             Chapato
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               src="~/assets/img/icon/gender/male.svg"
+              @contextmenu.prevent
             />
           </div>
           &nbsp;
           <div class="icon flex centered">
             Niveau<br /><img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               width="19"
               height="21"
               src="~/assets/img/number/2.svg"
+              @contextmenu.prevent
             /><img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               width="19"
               height="21"
               src="~/assets/img/number/5.svg"
+              @contextmenu.prevent
             />
           </div>
           <br /><br />
@@ -153,12 +153,12 @@
 </template>
 
 <script>
+import { format } from 'date-fns'
+import { fr } from 'date-fns/locale'
 import Tiz from '@/components/Tiz.vue'
 import User from '@/components/link/User.vue'
 import Group from '@/components/link/Group.vue'
 import StrokeText from '@/components/StrokeText.vue'
-import { format } from 'date-fns'
-import { fr } from 'date-fns/locale'
 
 export default {
   name: 'Member',
@@ -168,14 +168,14 @@ export default {
     Group,
     StrokeText,
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/member.json`)
+    return { data }
+  },
   data() {
     return {
       data: null,
     }
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/member.json`)
-    return { data }
   },
   computed: {
     formatDate() {

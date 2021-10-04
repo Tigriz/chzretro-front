@@ -4,15 +4,15 @@
     <Card color="red">
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         alt="Error icon"
         width="39"
         height="32"
         src="~/assets/img/icon/warning.svg"
+        @contextmenu.prevent
       /><b
         >&nbsp;{{
-          this.$route.params.message
-            ? $t(this.$route.params.message)
+          $route.params.message
+            ? $t($route.params.message)
             : $t("error.default")
         }}</b
       >

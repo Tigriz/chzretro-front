@@ -11,9 +11,9 @@
       <template #header></template>
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         class="fullwidth pack-preview"
         src="~/assets/img/shop/cabin.svg"
+        @contextmenu.prevent
       />
       <h3>Les dernières fringues</h3>
       <div class="menu flex">
@@ -50,11 +50,6 @@ export default {
     Bank,
     Pack,
   },
-  data() {
-    return {
-      data: null,
-    };
-  },
   async beforeRouteEnter(to, from, next) {
     next((vm) =>
       vm.api.get("/api/shop.json").then((res) => (vm.data = res.data))
@@ -63,6 +58,11 @@ export default {
   async beforeRouteUpdate() {
     const req = await this.api.get("/api/shop.json");
     this.data = req.data;
+  },
+  data() {
+    return {
+      data: null,
+    };
   },
 };
 </script>

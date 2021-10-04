@@ -9,9 +9,9 @@
     <Board v-if="data" :topics="data"> </Board>
     <br />
     <button style="text-align: left">
-      <img loading="lazy" v-if="!post" @click="post = true" src="~/assets/img/bbs/post.gif" />
+      <img v-if="!post" loading="lazy" src="~/assets/img/bbs/post.gif" @click="post = true" />
     </button>
-    <markdown-input isTopic v-if="post" />
+    <markdown-input v-if="post" is-topic />
     <br />
     <Card>
       <div class="columns">
@@ -75,16 +75,16 @@ export default {
     Board,
     MarkdownInput
   },
+async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/forum.json`)
+    return { data }
+  },
   data() {
     return {
       data: null,
       iconDescriptions,
       post: false
     };
-  },
-async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/forum.json`)
-    return { data }
   },
 };
 </script>

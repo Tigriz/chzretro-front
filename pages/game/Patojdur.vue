@@ -14,52 +14,52 @@
         <a href="#tutorial" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Records</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Meilleurs</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Pires</a
         >
         <a href="#tutorial" class="btn-sm blue-bg"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Caret"
             src="~/assets/img/icon/caret.png"
+            @contextmenu.prevent
           />&nbsp;Les Groupes</a
         >
         <a href="#tutorial" class="btn-sm pink-bg">
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Help icon"
             src="~/assets/img/icon/help.png"
+            @contextmenu.prevent
           />&nbsp;Comment jouer&nbsp;?
         </a>
       </div>
       <br />
       <img loading="lazy"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/game/bacteria/preview.gif"
         alt="A game of bacteria"
         title="A game of bacteria"
         style="float: left; margin-right: 17px; border: 3px solid #6699cc"
+        @contextmenu.prevent
       />
       <br />
       Bacteria est le jeu ancestral de notre île. Depuis des milliers d'années,

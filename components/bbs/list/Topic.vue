@@ -9,7 +9,7 @@
     <nuxt-link
       :to="'/bbs/' + $route.params.id + '/' + $route.params.topic"
       class="pink"
-      ><h1 class="justified ellipsis" v-if="messages[0]">
+      ><h1 v-if="messages[0]" class="justified ellipsis">
         {{ messages[0].title }}
       </h1></nuxt-link
     >

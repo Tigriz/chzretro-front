@@ -5,50 +5,50 @@
       :style="{
         'background-image':
           'url(' +
-          require('~/assets/img/navbar/svg/' + this.date.getHours() + '.svg') +
+          require('~/assets/img/navbar/svg/' + date.getHours() + '.svg') +
           ')',
       }"
     >
       <nuxt-link to="/"
-        ><img loading="lazy"
+        ><img id="logo"
+          loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           alt="Logo Chapatiz Retro"
-          id="logo"
           src="../assets/img/logo.svg"
+          @contextmenu.prevent
       /></nuxt-link>
       <div class="login flex centered">
         <div style="margin-top: -10px">
           <User
-            :user="user || { name: 'Visiteur' }"
             id="username"
+            :user="user || { name: 'Visiteur' }"
             style="display: inherit"
           />
           <button
+            v-if="authenticated"
             id="connect"
             class="flex centered"
             @click="logout"
-            v-if="authenticated"
           >
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Disconnect icon"
               src="../assets/img/icon/login/disconnect.svg"
+              @contextmenu.prevent
             />
             {{ $t('navbar.logout') }}
           </button>
           <button v-else>
             <nuxt-link
-              to="/login"
               id="connect"
+              to="/login"
               class="flex centered"
             >
               <img loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Connect icon"
                 src="../assets/img/icon/login/connect.svg"
+                @contextmenu.prevent
               />
               {{ $t('navbar.login') }}
             </nuxt-link>
@@ -72,11 +72,11 @@
         ><button class="nav-btn flex centered">
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Home icon"
             class="nav-icon"
             src="~/assets/img/navbar/icon/home.svg"
             style="margin: 2px; padding: 1px"
+            @contextmenu.prevent
           /></button
       ></nuxt-link>
       <a target="_blank" href="/tchat"
@@ -84,10 +84,10 @@
           <div class="nav-text">
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Tchat icon"
               class="nav-icon"
               src="~/assets/img/navbar/icon/tchat.svg"
+              @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
               $t('navbar.play')
@@ -95,10 +95,10 @@
           </div>
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Arrow icon"
             class="arrow jitter"
             src="~/assets/img/arrow.svg"
+            @contextmenu.prevent
           /></button
       ></a>
       <nuxt-link v-if="authenticated" to="/account"
@@ -106,10 +106,10 @@
           <div class="nav-text">
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Account icon"
               class="nav-icon"
               src="~/assets/img/navbar/icon/account.svg"
+              @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
               $t('navbar.account')
@@ -122,10 +122,10 @@
           <div class="nav-text">
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Games icon"
               class="nav-icon"
               src="~/assets/img/navbar/icon/games.svg"
+              @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
               $t('navbar.games')
@@ -138,10 +138,10 @@
           <div class="nav-text">
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Member icon"
               class="nav-icon"
               src="~/assets/img/navbar/icon/members.svg"
+              @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
               $t('navbar.members')
@@ -154,10 +154,10 @@
           <div class="nav-text">
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Community icon"
               class="nav-icon"
               src="~/assets/img/navbar/icon/community.svg"
+              @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
               $t('navbar.community')
@@ -170,10 +170,10 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from 'vuex'
 import Tiz from '@/components/Tiz.vue'
 import User from '@/components/link/User.vue'
 import StrokeText from '@/components/StrokeText.vue'
-import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: 'Navbar',
@@ -197,9 +197,9 @@ export default {
       this.$router.push(this.$route.path == '/' ? '/login' : this.$route.path)
     },
   },
-  /*created() {
+  /* created() {
     document.body.className = 'h' + this.date.getHours()
-  },*/
+  }, */
 }
 </script>
 <style  scoped>

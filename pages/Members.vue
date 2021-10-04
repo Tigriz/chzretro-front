@@ -71,14 +71,14 @@ export default {
   components: {
     Tiz
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/members.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/members.json`)
-    return { data }
   },
 };
 </script>

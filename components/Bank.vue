@@ -4,23 +4,23 @@
       <Button color="yellow" icon="register.svg">{{ $t("credit.title") }}</Button>
     </template>
     <div class="bank fullwidth">
-      <img loading="lazy"
-        draggable="false"
-        @contextmenu.prevent
-        class="coin"
-        v-for="(_, n) in Math.min(Math.floor(credits / 10), 176)"
-        :style="coinsPosition[n]"
+      <img v-for="(_, n) in Math.min(Math.floor(credits / 10), 176)"
         v-show="n <= Math.min(Math.floor(coins / 10), 176)"
         :key="n"
+        loading="lazy"
+        draggable="false"
+        class="coin"
+        :style="coinsPosition[n]"
         :src="require(`~/assets/img/bank/coin.svg`)"
+        @contextmenu.prevent
       />
       <object
         width="154"
         height="124"
         draggable="false"
-        @contextmenu.prevent
         type="image/svg+xml"
         :data="require('~/assets/img/bank/door.svg')"
+        @contextmenu.prevent
       ></object>
     </div>
 
@@ -42,22 +42,12 @@ export default {
   components: {
     AnimatedNumber,
   },
-
-  mounted() {
-    for (let i = 8; i <= Math.min(Math.floor(this.credits / 10), 360); i++) {
-      const left =
-        +this.coinsPosition[i % 8].left.slice(0, -2) + this.randomInt(-3, 3);
-      const top = +this.coinsPosition[i - 8].top.slice(0, -2) - 4;
-      const filter = this.coinsPosition[i % 8].filter;
-      const transform = this.coinsPosition[i % 8].transform;
-      this.coinsPosition.push({
-        left: left + "px",
-        top: top + "px",
-        filter: filter,
-        transform: transform,
-      });
-    }
-    requestAnimationFrame(this.tween);
+  props: {
+    credits: {
+      required: true,
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
@@ -115,12 +105,22 @@ export default {
       ],
     };
   },
-  props: {
-    credits: {
-      required: true,
-      type: Number,
-      default: 0,
-    },
+
+  mounted() {
+    for (let i = 8; i <= Math.min(Math.floor(this.credits / 10), 360); i++) {
+      const left =
+        +this.coinsPosition[i % 8].left.slice(0, -2) + this.randomInt(-3, 3);
+      const top = +this.coinsPosition[i - 8].top.slice(0, -2) - 4;
+      const filter = this.coinsPosition[i % 8].filter;
+      const transform = this.coinsPosition[i % 8].transform;
+      this.coinsPosition.push({
+        left: left + "px",
+        top: top + "px",
+        filter,
+        transform,
+      });
+    }
+    requestAnimationFrame(this.tween);
   },
   methods: {
     randomInt(min, max) {

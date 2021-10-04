@@ -1,18 +1,18 @@
 <template>
-  <div class="modal" v-if="!close">
+  <div v-if="!close" class="modal">
     <div class="modal-content">
       <img loading="lazy"
         style="float: left"
         draggable="false"
-        @contextmenu.prevent
         src="~/assets/img/icon/warning_modal.svg"
+        @contextmenu.prevent
       />
       <p>{{ $t(message) }}</p>
       <button class="pink-icon ok" @click="close = true">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/icon/ok.svg"
+          @contextmenu.prevent
         />
       </button>
     </div>
@@ -21,17 +21,17 @@
 <script>
 export default {
   name: "Modal",
-  data() {
-    return {
-      close: false,
-    };
-  },
   props: {
     message: {
       required: false,
       default: "error.default",
       type: String,
     },
+  },
+  data() {
+    return {
+      close: false,
+    };
   },
 };
 </script>

@@ -19,7 +19,7 @@
     <Demo />
 
     <template #right-column
-      ><Card color="blue" top v-if="data">
+      ><Card v-if="data" color="blue" top>
         <template #header
           ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
@@ -44,14 +44,14 @@ export default {
     Demo,
     Security
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/members.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/members.json`)
-    return { data }
   },
   methods: {
     login() {

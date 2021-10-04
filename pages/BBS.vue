@@ -14,37 +14,37 @@
         <div>
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="BBS Verrouillé (nouveaux messages)"
             title="BBS Verrouillé (nouveaux messages)"
             src="~/assets/img/bbs/folder_new_lock.svg"
+            @contextmenu.prevent
           />&nbsp;Verrouillé nouveaux messages&nbsp;
         </div>
         <div>
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="BBS Verrouillé"
             title="BBS Verrouillé"
             src="~/assets/img/bbs/folder_lock.svg"
+            @contextmenu.prevent
           />&nbsp;Verrouillé&nbsp;
         </div>
         <div>
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Nouveaux messages"
             title="Nouveaux messages"
             src="~/assets/img/bbs/folder_new.svg"
+            @contextmenu.prevent
           />&nbsp;Nouveaux messages&nbsp;
         </div>
         <div>
           <img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Pas de nouveaux messages"
             title="Pas de nouveaux messages"
             src="~/assets/img/bbs/folder.svg"
+            @contextmenu.prevent
           />&nbsp;Pas de nouveaux messages&nbsp;
         </div>
       </div></Card
@@ -60,14 +60,14 @@ export default {
   components: {
     BBSList
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/bbs.json`)
+    return { data }
+  },
   data() {
     return {
       data: null
     };
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/bbs.json`)
-    return { data }
   },
 };
 </script>

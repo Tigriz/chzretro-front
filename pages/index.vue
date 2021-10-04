@@ -2,71 +2,71 @@
   <Container>
     <template #left-column>
       <Card color="blue" top>
-        <nuxt-link to="/levels" v-if="data">
+        <nuxt-link v-if="data" to="/levels">
           <div class="level fullwidth">
             {{ $t('level') }}
             <div class="number">
-              <img loading="lazy"
-                draggable="false"
-                @contextmenu.prevent
-                :alt="number"
-                v-for="number in data.level.toString(10)"
+              <img v-for="number in data.level.toString(10)"
                 :key="number.index"
+                loading="lazy"
+                draggable="false"
+                :alt="number"
                 width="19"
                 height="21"
                 :src="require(`~/assets/img/number/${number}.svg`)"
+                @contextmenu.prevent
               />
             </div>
           </div>
         </nuxt-link>
-        <nuxt-link to="/mi" v-if="data">
+        <nuxt-link v-if="data" to="/mi">
           <div class="messages">
             <div>
-              <img loading="lazy"
-                draggable="false"
-                @contextmenu.prevent
-                :alt="number"
-                v-for="number in data.messages.toString(10)"
+              <img v-for="number in data.messages.toString(10)"
                 :key="number.index"
+                loading="lazy"
+                draggable="false"
+                :alt="number"
                 width="19"
                 height="21"
                 :src="require(`~/assets/img/number/pink/${number}.svg`)"
+                @contextmenu.prevent
               />
             </div>
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Messages"
               src="~/assets/img/home/messages.png"
               width="154"
               height="67"
               class="fullwidth"
+              @contextmenu.prevent
             />
           </div>
           {{ $t('mi.message', data.messages) }}
         </nuxt-link>
-        <nuxt-link to="/friends" v-if="data">
+        <nuxt-link v-if="data" to="/friends">
           <div class="friends">
             <div>
-              <img loading="lazy"
-                draggable="false"
-                @contextmenu.prevent
-                :alt="number"
-                v-for="number in data.friends.toString(10)"
+              <img v-for="number in data.friends.toString(10)"
                 :key="number.index"
+                loading="lazy"
+                draggable="false"
+                :alt="number"
                 width="19"
                 height="21"
                 :src="require(`~/assets/img/number/pink/${number}.svg`)"
+                @contextmenu.prevent
               />
             </div>
             <img loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Friends"
               src="~/assets/img/home/friends.png"
               width="154"
               height="67"
               class="fullwidth"
+              @contextmenu.prevent
             />
           </div>
           {{ $t('friends.online', data.friends) }}
@@ -77,37 +77,37 @@
     </template>
     <img loading="lazy"
       draggable="false"
-      @contextmenu.prevent
       src="/announce/summer.png"
       width="468"
       height="213"
       style="width: 100%"
+      @contextmenu.prevent
     />
     <br />
-    <Card filename="lottery.png" v-if="data && data.lottery">
+    <Card v-if="data && data.lottery" filename="lottery.png">
       <template #header>
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           width="434"
           height="87"
           src="~/assets/img/home/header_hello.png"
           style="width: 100%"
+          @contextmenu.prevent
         />
       </template>
       {{ $t('lottery.firstLine') }}<br />
       {{ $t('lottery.secondLine') }}<br /><br />
       <RandomNumber :max="30" :value="20" :duration="5000" />
       <br /><br />
-      <Button color="orange" @click="handle" class="btn-loto"
+      <Button color="orange" class="btn-loto" @click="handle"
         ><template #prepend
-          ><img loading="lazy"
+          ><img ref="handle"
+            loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Lottery handle"
             class="handle"
-            ref="handle"
-            src="~/assets/img/lottery/up.svg" /></template
+            src="~/assets/img/lottery/up.svg"
+            @contextmenu.prevent /></template
         >Jouer</Button
       ></Card
     ><br />
@@ -116,10 +116,10 @@
       <template #header
         ><img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="float: left; margin: 0 17px 17px 0"
+          @contextmenu.prevent
         />
         Changelog du 12/07/2021
       </template>
@@ -137,27 +137,27 @@
       <div class="gallery flex">
         <img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="margin: auto"
+          @contextmenu.prevent
         /><img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="margin: auto"
+          @contextmenu.prevent
         /><img loading="lazy"
           draggable="false"
-          @contextmenu.prevent
           src="~/assets/img/home/chimboking.gif"
           alt="Chimboking portrait"
           style="margin: auto"
+          @contextmenu.prevent
         />
       </div>
     </Card>
     <template #right-column
-      ><Card color="blue" top v-if="data">
+      ><Card v-if="data" color="blue" top>
         <template #header
           ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
@@ -175,9 +175,9 @@
         <nuxt-link to="/help"
           ><img loading="lazy"
             draggable="false"
-            @contextmenu.prevent
             alt="Puce"
             src="~/assets/img/puce.svg"
+            @contextmenu.prevent
           />{{ $t('help.tip') }}</nuxt-link
         ></Card
       ><br />
@@ -216,14 +216,14 @@ export default {
     RandomNumber,
     Pack,
   },
+  async asyncData({ $axios }) {
+    const data = await $axios.$get(`/api/home.json`)
+    return { data }
+  },
   data() {
     return {
       data: null,
     }
-  },
-  async asyncData({ $axios }) {
-    const data = await $axios.$get(`/api/home.json`)
-    return { data }
   },
   methods: {
     handle({ currentTarget }) {
@@ -253,8 +253,8 @@ export default {
       { property: 'og:site_name', content: 'Chapatiz Retro' },
       { property: 'og:type', content: 'website' },
       { property: 'og:image', content: '/announce/summer.png' },
-      /*{ property: "og:image:width", content: "192" },
-      { property: "og:image:height", content: "192" }*/
+      /* { property: "og:image:width", content: "192" },
+      { property: "og:image:height", content: "192" } */
     ],
   },
 }

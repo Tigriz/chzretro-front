@@ -127,10 +127,8 @@ router.beforeEach((to, from, next) => {
     if (guestOnly.includes(to.name))
       router.push({ name: "Error", params: { message: "error.connected" } });
     else next();
-  } else {
-    if (userOnly.includes(to.name)) next({ name: "Login" });
+  } else if (userOnly.includes(to.name)) next({ name: "Login" });
     else next();
-  }
 });
 
 export default router;

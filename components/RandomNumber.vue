@@ -1,15 +1,15 @@
 <template>
   <div>
-    <img loading="lazy"
+    <img v-for="digit in displayNumber"
+      :key="digit.index"
+      loading="lazy"
       :class="{ win: elapsed > duration }"
       draggable="false"
-      @contextmenu.prevent
       :alt="digit"
-      v-for="digit in displayNumber"
-      :key="digit.index"
       width="19"
       height="21"
       :src="require(`~/assets/img/number/${digit}.svg`)"
+      @contextmenu.prevent
     />
   </div>
 </template>
@@ -17,6 +17,12 @@
 <script>
 export default {
   name: 'RandomNumber',
+  props: {
+    min: { default: 0, type: Number, required: false },
+    max: { type: Number, required: true },
+    value: { type: Number, required: true },
+    duration: { default: 2000, type: Number, required: true },
+  },
   data() {
     return {
       displayNumber: this.max.toString(),
@@ -24,12 +30,6 @@ export default {
       previousTimeStamp: Date.now(),
       elapsed: 0,
     }
-  },
-  props: {
-    min: { default: 0, type: Number, required: false },
-    max: { type: Number, required: true },
-    value: { type: Number, required: true },
-    duration: { default: 2000, type: Number, required: true },
   },
 
   mounted() {

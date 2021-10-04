@@ -1,14 +1,14 @@
 <template>
   <div>
-    <img loading="lazy"
-      draggable="false"
-      @contextmenu.prevent
-      :alt="digit"
-      v-for="digit in displayNumber.toString(10)"
+    <img v-for="digit in displayNumber.toString(10)"
       :key="digit.index"
+      loading="lazy"
+      draggable="false"
+      :alt="digit"
       width="19"
       height="21"
       :src="require(`~/assets/img/number/${digit}.svg`)"
+      @contextmenu.prevent
     />
   </div>
 </template>

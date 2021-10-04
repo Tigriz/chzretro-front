@@ -1,12 +1,12 @@
 <template>
   <div>
     <router-link
-      :to="entry.url"
-      class="list"
       v-for="(entry, i) of sideNavEntries.filter(
         (entry) => entry.section == section
       )"
       :key="i"
+      :to="entry.url"
+      class="list"
     >
       <img loading="lazy"
         src="@/assets/img/puce.svg"

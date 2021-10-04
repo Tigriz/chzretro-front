@@ -20,7 +20,7 @@
       "
       @next-item="
         (name) =>
-          (data.blazon[name] = this.data.items[name][
+          (data.blazon[name] = data.items[name][
             data.items[name].indexOf(data.blazon[name]) + 1
           ])
       "
@@ -35,15 +35,15 @@ export default {
   components: {
     Cabin
   },
-  data() {
-    return {
-      data: null
-    };
-  },
 
 async asyncData({ $axios }) {
     const data = await $axios.$get(`/api/edit.json`)
     return { data }
+  },
+  data() {
+    return {
+      data: null
+    };
   },
 };
 </script>

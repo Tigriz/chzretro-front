@@ -6,17 +6,17 @@
           <div class="cabin flex centered">
             <div class="arrows flex">
               <button
-                type="button"
-                v-for="(category, name) of this.data.items"
+                v-for="(category, name) of data.items"
                 :key="name"
+                type="button"
                 :disabled="data.items[name].indexOf(data.blazon[name]) < 1"
                 @click="$emit('previousItem', name)"
               >
                 <img loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
+                  @contextmenu.prevent
                 />
               </button>
             </div>
@@ -29,9 +29,9 @@
             />
             <div class="arrows flex">
               <button
-                type="button"
-                v-for="(category, name) of this.data.items"
+                v-for="(category, name) of data.items"
                 :key="name"
+                type="button"
                 :disabled="
                   data.items[name].indexOf(data.blazon[name]) >
                     data.items[name].length - 2
@@ -40,9 +40,9 @@
               >
                 <img loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
+                  @contextmenu.prevent
                 />
               </button>
             </div>
@@ -52,10 +52,11 @@
           <div id="inventory">
             <div class="category-selection" @contextmenu.prevent>
               <button
-                type="button"
                 v-for="(_, category) of data.items"
                 :key="category"
+                type="button"
                 :class="{ active: checked.includes(category) }"
+                class="item pointer"
                 @click="
                   checked.includes(category) && checked.length == 1
                     ? (checked = [
@@ -72,44 +73,43 @@
                     ? checked.splice(checked.indexOf(category), 1)
                     : checked.push(category)
                 "
-                class="item pointer"
               >
                 <img loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   :src="
                     require(`~/assets/img/icon/item_category/${category}.svg`)
                   "
+                  @contextmenu.prevent
                 />
               </button>
             </div>
             <div class="chest">
               <div
-                class="category"
                 v-for="(category, name) of {
-                  shape: this.checked.includes('shape')
-                    ? this.data.items.shape
+                  shape: checked.includes('shape')
+                    ? data.items.shape
                     : [],
-                  top: this.checked.includes('top') ? this.data.items.top : [],
-                  bot: this.checked.includes('bot') ? this.data.items.bot : [],
-                  primary: this.checked.includes('primary')
-                    ? this.data.items.primary
+                  top: checked.includes('top') ? data.items.top : [],
+                  bot: checked.includes('bot') ? data.items.bot : [],
+                  primary: checked.includes('primary')
+                    ? data.items.primary
                     : [],
-                  secondary: this.checked.includes('secondary')
-                    ? this.data.items.secondary
+                  secondary: checked.includes('secondary')
+                    ? data.items.secondary
                     : []
                 }"
                 :key="name"
+                class="category"
                 :class="[name]"
               >
                 <button
+                  v-for="item of category"
+                  :key="item"
                   type="button"
                   class="item"
                   :class="{
-                    active: this.data.blazon[name] == item
+                    active: data.blazon[name] == item
                   }"
-                  v-for="item of category"
-                  :key="item"
                   @click="$emit('updateItem', name, item)"
                   @mouseover="info = name + ' ' + item"
                 >
@@ -134,16 +134,16 @@
                       d="M34.1 6.7c-6.934 3.866-14.5 6.984-22.7 9.35.067 15.734 3.083 27.083 9.05 34.05l2.75 2.75c3.2 2.7 7.033 4.434 11.5 5.2l.35-.1-.15-.8.2.55.05.25c15.834-3.2 23.467-17.166 22.9-41.9C49.318 13.985 41.6 10.9 34.9 6.8l-.1-.05-.05-.05Z"
                     />
                   </svg>
-                  <img loading="lazy"
-                    v-else
+                  <img v-else
+                    loading="lazy"
                     draggable="false"
-                    @contextmenu.prevent
                     :src="`/blazon/${name}/${item}.svg`"
+                    @contextmenu.prevent
                   />
                 </button>
               </div>
             </div>
-            <div class="info">{{ this.info }}</div>
+            <div class="info">{{ info }}</div>
           </div>
         </div>
       </div>
@@ -158,17 +158,6 @@ export default {
   components: {
     Blazon
   },
-  data() {
-    return {
-      info: "",
-      checked: ["shape", "top", "bot", "primary", "secondary"]
-    };
-  },
-  methods: {
-    submit() {
-      console.log("Envoyé!");
-    }
-  },
   props: {
     data: {
       required: true,
@@ -180,6 +169,17 @@ export default {
     centreb: { type: String },
     centrec: { type: String },
     centred: { type: String }
+  },
+  data() {
+    return {
+      info: "",
+      checked: ["shape", "top", "bot", "primary", "secondary"]
+    };
+  },
+  methods: {
+    submit() {
+      console.log("Envoyé!");
+    }
   }
 };
 </script>

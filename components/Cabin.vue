@@ -6,18 +6,18 @@
           <div class="cabin flex centered">
             <div class="arrows flex">
               <button
-                type="button"
-                v-for="(category, name) of this.data.items"
+                v-for="(category, name) of data.items"
                 :key="name"
+                type="button"
                 :disabled="data.items[name].indexOf(data.look[name]) < 1"
                 @click="$emit('previousItem', name)"
               >
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
+                  @contextmenu.prevent
                 />
               </button>
             </div>
@@ -51,9 +51,9 @@
             </div>
             <div class="arrows flex">
               <button
-                type="button"
-                v-for="(category, name) of this.data.items"
+                v-for="(category, name) of data.items"
                 :key="name"
+                type="button"
                 :disabled="
                   data.items[name].indexOf(data.look[name]) >
                   data.items[name].length - 2
@@ -63,9 +63,9 @@
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
+                  @contextmenu.prevent
                 />
               </button>
             </div>
@@ -76,49 +76,49 @@
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   style="transform: rotate(-90deg)"
                   :class="{ pushed: up }"
+                  @contextmenu.prevent
                 /></button
               ><br /><button type="button">
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   style="transform: scaleX(-1)"
                   :class="{ pushed: left }"
+                  @contextmenu.prevent
                 /></button
-              ><button type="button" id="random">
+              ><button id="random" type="button">
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Random button"
                   title="Randomize look"
                   src="~/assets/img/home/chaparadio/stop.svg"
+                  @contextmenu.prevent
                 /></button
               ><button type="button">
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   :class="{ pushed: right }"
+                  @contextmenu.prevent
                 /></button
               ><br /><button type="button">
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   :class="{ pushed: down }"
                   style="transform: rotate(-90deg) scaleX(-1)"
+                  @contextmenu.prevent
                 />
               </button>
             </div>
@@ -135,10 +135,10 @@
               <img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Male gender"
                 title="Male gender"
                 src="~/assets/img/icon/gender/male.svg"
+                @contextmenu.prevent
               /></button
             ><button
               type="button"
@@ -151,10 +151,10 @@
               <img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Female gender"
                 title="Female gender"
                 src="~/assets/img/icon/gender/female.svg"
+                @contextmenu.prevent
               /></button
             ><button
               type="button"
@@ -167,15 +167,15 @@
               <img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Unknown gender"
                 title="Unknown gender"
                 src="~/assets/img/icon/gender/unknown.svg"
+                @contextmenu.prevent
               />
             </button>
           </div>
           <br />
-          <div class="gender">{{ this.gender }}</div>
+          <div class="gender">{{ gender }}</div>
         </div>
         <div class="right-acc flex">
           <div class="nav-acc flex">
@@ -195,7 +195,7 @@
               }}</Button>
             </div>
           </div>
-          <div id="profile" v-show="profile">
+          <div v-show="profile" id="profile">
             <Emotes />
             <br />
             <h3 class="justified">Ta phrase préférée</h3>
@@ -254,13 +254,14 @@
               </li>
             </ol>
           </div>
-          <div id="inventory" v-if="loadInventory" v-show="!profile">
+          <div v-if="loadInventory" v-show="!profile" id="inventory">
             <div class="category-selection" @contextmenu.prevent>
               <button
-                type="button"
                 v-for="(_, category) of data.items"
                 :key="category"
+                type="button"
                 :class="{ active: checked.includes(category) }"
+                class="item pointer"
                 @click="
                   checked.includes(category) && checked.length == 1
                     ? (checked = [
@@ -278,71 +279,70 @@
                     ? checked.splice(checked.indexOf(category), 1)
                     : checked.push(category)
                 "
-                class="item pointer"
               >
                 <img
                   loading="lazy"
                   draggable="false"
-                  @contextmenu.prevent
                   :src="
                     require(`~/assets/img/icon/item_category/${category}.svg`)
                   "
+                  @contextmenu.prevent
                 />
               </button>
             </div>
             <div class="chest">
               <div
-                class="category"
                 v-for="(category, name) of {
-                  item0: this.checked.includes('item0')
-                    ? this.data.items.item0
+                  item0: checked.includes('item0')
+                    ? data.items.item0
                     : [],
-                  hat: this.checked.includes('hat') ? this.data.items.hat : [],
-                  item1: this.checked.includes('item1')
-                    ? this.data.items.item1
+                  hat: checked.includes('hat') ? data.items.hat : [],
+                  item1: checked.includes('item1')
+                    ? data.items.item1
                     : [],
-                  body: this.checked.includes('body')
-                    ? this.data.items.body
+                  body: checked.includes('body')
+                    ? data.items.body
                     : [],
-                  item2: this.checked.includes('item2')
-                    ? this.data.items.item2
+                  item2: checked.includes('item2')
+                    ? data.items.item2
                     : [],
-                  shoe: this.checked.includes('shoe')
-                    ? this.data.items.shoe
+                  shoe: checked.includes('shoe')
+                    ? data.items.shoe
                     : [],
                 }"
                 :key="name"
+                class="category"
                 :class="[name]"
               >
                 <button
+                  v-for="item of category"
+                  :key="item"
                   type="button"
                   class="item"
                   :class="{
-                    active: this.data.look[name] == item,
+                    active: data.look[name] == item,
                   }"
-                  v-for="item of category"
-                  :key="item"
                   @click="$emit('updateItem', name, item)"
                   @mouseover="info = name + ' ' + item"
                 >
                   <img
+                    v-if="item == 1"
                     loading="lazy"
                     draggable="false"
-                    @contextmenu.prevent
-                    v-if="item == 1"
                     src="~/assets/img/icon/cross.svg"
+                    @contextmenu.prevent
                   />
                   <VLazyImage
-                    draggable="false"
-                    @contextmenu.prevent
                     v-else
+                    draggable="false"
                     :src="`/avatar/${name}/${item}.svg`"
                     :src-placeholder="require('~/assets/img/loading.svg')"
+                    @contextmenu.prevent
                   />
                 </button>
               </div>
             </div>
-            <div class="info">{{ this.info }}</div>
+            <div class="info">{{ info }}</div>
           </div>
         </div>
       </div>
@@ -352,10 +352,10 @@
             ><img
               loading="lazy"
               draggable="false"
-              @contextmenu.prevent
               alt="Arrow icon"
               class="arrow green jitter"
-              src="~/assets/img/arrow.svg" /></template
+              src="~/assets/img/arrow.svg"
+              @contextmenu.prevent /></template
           >Sauver</Button
         ><nuxt-link :to="`/member/${data.id}`">
           <Button type="button"
@@ -363,11 +363,11 @@
               ><img
                 loading="lazy"
                 draggable="false"
-                @contextmenu.prevent
                 alt="Profile icon"
                 style="height: 24px"
                 height="24"
-                src="~/assets/img/icon/profile.svg" /></template
+                src="~/assets/img/icon/profile.svg"
+                @contextmenu.prevent /></template
             >Fiche</Button
           ></nuxt-link
         >
@@ -385,6 +385,18 @@ export default {
     Tiz,
     Emotes,
   },
+  props: {
+    data: {
+      required: true,
+      type: Object,
+    },
+    motto: { type: String },
+    website: { type: String },
+    centrea: { type: String },
+    centreb: { type: String },
+    centrec: { type: String },
+    centred: { type: String },
+  },
   data() {
     return {
       profile: true,
@@ -397,18 +409,6 @@ export default {
       checked: ['item0', 'hat', 'item1', 'body', 'item2', 'shoe'],
       gender: this.data.gender,
     }
-  },
-  props: {
-    data: {
-      required: true,
-      type: Object,
-    },
-    motto: { type: String },
-    website: { type: String },
-    centrea: { type: String },
-    centreb: { type: String },
-    centrec: { type: String },
-    centred: { type: String },
   },
   methods: {
     submit() {
