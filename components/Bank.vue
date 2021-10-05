@@ -1,7 +1,7 @@
 <template>
   <Card color="yellow">
     <template #button>
-      <Button color="yellow" icon="register.svg">{{ $t("credit.title") }}</Button>
+      <Button color="yellow" icon="register.svg">{{ $tc("credit.title", credits) }}</Button>
     </template>
     <div class="bank fullwidth">
       <img v-for="(_, n) in Math.min(Math.floor(credits / 10), 176)"
@@ -26,8 +26,8 @@
 
     <nuxt-link to="/bank">
       {{ $t("credit.youGot") }}<br />
-      <AnimatedNumber :number="credits" /><br />
-      {{ $t("credit.text", credits) }} </nuxt-link
+      <AnimatedNumber :number="credits" />
+      {{ $tc("credit.text", credits) }} </nuxt-link
     ><br /><br />
     <nuxt-link to="/reflooz" class="btn-route"
       ><Button color="orange" icon="register.svg">Reflooz</Button></nuxt-link

@@ -43,7 +43,7 @@
               @contextmenu.prevent
             />
           </div>
-          {{ $t('mi.message', data.messages) }}
+          {{ $tc('mi.message', data.messages) }}
         </nuxt-link>
         <nuxt-link v-if="data" to="/friends">
           <div class="friends">
@@ -69,7 +69,7 @@
               @contextmenu.prevent
             />
           </div>
-          {{ $t('friends.online', data.friends) }}
+          {{ $tc('friends.online', data.friends) }}
         </nuxt-link>
       </Card>
       <br />
@@ -161,11 +161,11 @@
         <template #header
           ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
-            {{ $t('connecteds', data.connected) }}</nuxt-link
+            {{ $tc('connecteds', data.connected) }}</nuxt-link
           ></template
         >
-        {{ data.members }} {{ $t('members.text', data.members) }} <br />
-        {{ data.last24 }} {{ $t('members.past', data.last24) }} </Card
+        {{ data.members }} {{ $tc('members.text', data.members) }} <br />
+        {{ data.last24 }} {{ $tc('members.past', data.last24) }} </Card
       ><br />
       <Card color="blue">
         <template #button>

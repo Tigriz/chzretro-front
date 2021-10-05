@@ -23,11 +23,11 @@
         <template #header
           ><nuxt-link to="/online"
             ><h1>{{ data.connected }}</h1>
-            {{ $t("connecteds", data.connected) }}</nuxt-link
+            {{ $tc("connecteds", data.connected) }}</nuxt-link
           ></template
         >
-        {{ data.members }} {{ $t("members.text", data.members) }} <br />
-        {{ data.last24 }} {{ $t("members.past", data.last24) }} </Card
+        {{ data.members }} {{ $tc("members.text", data.members) }} <br />
+        {{ data.last24 }} {{ $tc("members.past", data.last24) }} </Card
       ><br />
     </template>
   </Container>

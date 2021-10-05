@@ -18,12 +18,12 @@
         src="https://img.shields.io/discord/765491519536496660?label=discord&amp;logo=discord&amp;logoColor=fff"
         @contextmenu.prevent/></a
     >&nbsp;
-    <a href="http://www.gnu.org/licenses/gpl-3.0" target="_blank"
+    <a href="http://www.cecill.info/licences/Licence_CeCILL_V2.1-en.html" target="_blank"
       ><img loading="lazy"
         draggable="false"
-        alt="License GPL v3"
-        title="License GPL v3"
-        src="https://img.shields.io/badge/license-GPL%20v3-blue.svg"
+        alt="License CeCILL v2.1"
+        title="License CeCILL v2.1"
+        src="https://img.shields.io/badge/license-CeCILL%20v2.1-informational"
         @contextmenu.prevent/></a
     >&nbsp;
     <a href="https://github.com/Tigriz/chzretro-front" target="_blank"
