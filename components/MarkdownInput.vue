@@ -21,7 +21,7 @@
             id: 'reply',
             new: true,
             signature: signature,
-            title: title,
+            title: title
           }"
         />
       </tbody>
@@ -36,7 +36,7 @@
         <thead>
           <tr>
             <th valign="top" colspan="2" height="25" nowrap="nowrap">
-              {{ isTopic ? 'Créer un sujet' : 'Répondre au sujet' }}
+              {{ isTopic ? "Créer un sujet" : "Répondre au sujet" }}
             </th>
           </tr>
         </thead>
@@ -75,7 +75,8 @@
                   <a href="#" @click.prevent>a</a>
                 </button>
                 <button class="btn-md" @click="formatLink(true)">
-                  <img loading="lazy"
+                  <img
+                    loading="lazy"
                     draggable="false"
                     src="~/assets/img/favicon.svg"
                     height="22"
@@ -280,7 +281,8 @@ Code block</pre
             <td colspan="2">
               <Button type="submit" color="green"
                 ><template #prepend
-                  ><img loading="lazy"
+                  ><img
+                    loading="lazy"
                     draggable="false"
                     alt="Arrow icon"
                     class="arrow jitter green"
@@ -296,64 +298,64 @@ Code block</pre
   </div>
 </template>
 <script>
-import { mapState } from 'vuex'
-import Emotes from '@/components/Emotes.vue'
-import Message from '@/components/bbs/row/Message.vue'
+//import { mapState } from "vuex";
+import Emotes from "@/components/Emotes.vue";
+import Message from "@/components/bbs/row/Message.vue";
 
 export default {
-  name: 'MarkdownInput',
+  name: "MarkdownInput",
   components: { Emotes, Message },
   props: {
     isTopic: {
       required: false,
       default: false,
-      type: Boolean,
-    },
+      type: Boolean
+    }
   },
   data() {
     return {
-      message: '',
-      title: '',
+      message: "",
+      title: "",
       signature: true,
       markdown: false,
-      selectionRange: [0, 0],
-    }
+      selectionRange: [0, 0]
+    };
   },
   computed: {
-    ...mapState('auth', ['user']),
+    ...mapState("auth", ["user"])
   },
   methods: {
     submit() {
-      console.log('Envoyé!')
+      console.log("Envoyé!");
     },
     scrollTo(anchor) {
-      location.href = anchor
+      location.href = anchor;
     },
     resetSelection(length) {
       this.selectionRange = [
         this.selectionRange[1] + length,
-        this.selectionRange[1] + length,
-      ]
-      this.$refs.message.focus()
+        this.selectionRange[1] + length
+      ];
+      this.$refs.message.focus();
     },
     focusHandler() {
-      this.$refs.message.focus()
+      this.$refs.message.focus();
       this.$refs.message.setSelectionRange(
         this.selectionRange[0],
         this.selectionRange[1]
-      )
+      );
     },
     selectionHandler(e) {
       this.selectionRange = [
         e.currentTarget.selectionStart,
-        e.currentTarget.selectionEnd,
-      ]
+        e.currentTarget.selectionEnd
+      ];
     },
     select() {
       this.$refs.message.setSelectionRange(
         this.selectionRange[0],
         this.selectionRange[1]
-      )
+      );
     },
     format(pattern) {
       this.$refs.message.setRangeText(
@@ -363,64 +365,64 @@ export default {
             this.selectionRange[1]
           ) +
           (/<[a-z0-9]+>/.test(pattern)
-            ? pattern.substring(0, 1) + '/' + pattern.substring(1)
+            ? pattern.substring(0, 1) + "/" + pattern.substring(1)
             : pattern)
-      )
+      );
       this.resetSelection(
         pattern.length * 2 + (/<[a-z0-9]+>/.test(pattern) ? 1 : 0)
-      )
+      );
     },
     formatLink(image) {
       this.$refs.message.setRangeText(
-        `${image ? '!' : ''}[${this.message.substring(
+        `${image ? "!" : ""}[${this.message.substring(
           this.selectionRange[0],
           this.selectionRange[1]
         )}](${this.message.substring(
           this.selectionRange[0],
           this.selectionRange[1]
         )})`
-      )
+      );
       this.selectionRange = [
         this.selectionRange[0] + 1 + +image,
-        this.selectionRange[1] + 1 + +image,
-      ]
-      this.focusHandler()
+        this.selectionRange[1] + 1 + +image
+      ];
+      this.focusHandler();
     },
     formatCode() {
       this.$refs.message.setRangeText(
-        '\n```' +
-          this.$t('format.language') +
-          '\n' +
+        "\n```" +
+          this.$t("format.language") +
+          "\n" +
           this.message.substring(
             this.selectionRange[0],
             this.selectionRange[1]
           ) +
-          '\n```\n'
-      )
+          "\n```\n"
+      );
       this.selectionRange = [
         this.selectionRange[0] + 4,
-        this.selectionRange[0] + 4 + this.$t('format.language').length,
-      ]
-      this.focusHandler()
+        this.selectionRange[0] + 4 + this.$t("format.language").length
+      ];
+      this.focusHandler();
     },
     formatMultiline(pattern) {
       this.$refs.message.setRangeText(
-        (this.message.charAt(this.selectionRange[0] - 1) == '\n' ||
+        (this.message.charAt(this.selectionRange[0] - 1) == "\n" ||
         this.selectionRange[0] == 0
           ? pattern
-          : '\n' + pattern) +
+          : "\n" + pattern) +
           this.message
             .substring(this.selectionRange[0], this.selectionRange[1])
-            .split('\n')
+            .split("\n")
             .reduce((prev, curr) => `${prev}\n${pattern}${curr}`) +
-          '\n'
-      )
+          "\n"
+      );
       this.resetSelection(
         pattern.length *
           this.message
             .substring(this.selectionRange[0], this.selectionRange[1])
-            .split('\n').length
-      )
+            .split("\n").length
+      );
     },
     formatColor(hex) {
       this.$refs.message.setRangeText(
@@ -429,12 +431,12 @@ export default {
             this.selectionRange[0],
             this.selectionRange[1]
           ) +
-          '</span>'
-      )
-      this.resetSelection(35)
-    },
-  },
-}
+          "</span>"
+      );
+      this.resetSelection(35);
+    }
+  }
+};
 </script>
 <style scoped>
 td {

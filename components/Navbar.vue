@@ -6,11 +6,12 @@
         'background-image':
           'url(' +
           require('~/assets/img/navbar/svg/' + date.getHours() + '.svg') +
-          ')',
+          ')'
       }"
     >
       <nuxt-link to="/"
-        ><img id="logo"
+        ><img
+          id="logo"
           loading="lazy"
           draggable="false"
           alt="Logo Chapatiz Retro"
@@ -30,27 +31,25 @@
             class="flex centered"
             @click="logout"
           >
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Disconnect icon"
               src="../assets/img/icon/login/disconnect.svg"
               @contextmenu.prevent
             />
-            {{ $t('navbar.logout') }}
+            {{ $t("navbar.logout") }}
           </button>
           <button v-else>
-            <nuxt-link
-              id="connect"
-              to="/login"
-              class="flex centered"
-            >
-              <img loading="lazy"
+            <nuxt-link id="connect" to="/login" class="flex centered">
+              <img
+                loading="lazy"
                 draggable="false"
                 alt="Connect icon"
                 src="../assets/img/icon/login/connect.svg"
                 @contextmenu.prevent
               />
-              {{ $t('navbar.login') }}
+              {{ $t("navbar.login") }}
             </nuxt-link>
           </button>
         </div>
@@ -70,19 +69,20 @@
     <div id="nav" class="flex">
       <nuxt-link to="/"
         ><button class="nav-btn flex centered">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             draggable="false"
             alt="Home icon"
             class="nav-icon"
             src="~/assets/img/navbar/icon/home.svg"
             style="margin: 2px; padding: 1px"
-            @contextmenu.prevent
-          /></button
+            @contextmenu.prevent /></button
       ></nuxt-link>
       <a target="_blank" href="/tchat"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Tchat icon"
               class="nav-icon"
@@ -90,21 +90,22 @@
               @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
-              $t('navbar.play')
+              $t("navbar.play")
             }}</StrokeText>
           </div>
-          <img loading="lazy"
+          <img
+            loading="lazy"
             draggable="false"
             alt="Arrow icon"
             class="arrow jitter"
             src="~/assets/img/arrow.svg"
-            @contextmenu.prevent
-          /></button
+            @contextmenu.prevent /></button
       ></a>
       <nuxt-link v-if="authenticated" to="/account"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Account icon"
               class="nav-icon"
@@ -112,7 +113,7 @@
               @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
-              $t('navbar.account')
+              $t("navbar.account")
             }}</StrokeText>
           </div>
         </button></nuxt-link
@@ -120,7 +121,8 @@
       <nuxt-link to="/games"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Games icon"
               class="nav-icon"
@@ -128,7 +130,7 @@
               @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
-              $t('navbar.games')
+              $t("navbar.games")
             }}</StrokeText>
           </div>
         </button></nuxt-link
@@ -136,7 +138,8 @@
       <nuxt-link to="/members"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Member icon"
               class="nav-icon"
@@ -144,7 +147,7 @@
               @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
-              $t('navbar.members')
+              $t("navbar.members")
             }}</StrokeText>
           </div>
         </button></nuxt-link
@@ -152,7 +155,8 @@
       <nuxt-link to="/bbs"
         ><button class="nav-btn flex centered">
           <div class="nav-text">
-            <img loading="lazy"
+            <img
+              loading="lazy"
               draggable="false"
               alt="Community icon"
               class="nav-icon"
@@ -160,7 +164,7 @@
               @contextmenu.prevent
             />
             <StrokeText style="z-index: 1" class="btn-label">{{
-              $t('navbar.community')
+              $t("navbar.community")
             }}</StrokeText>
           </div>
         </button></nuxt-link
@@ -170,39 +174,39 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from 'vuex'
-import Tiz from '@/components/Tiz.vue'
-import User from '@/components/link/User.vue'
-import StrokeText from '@/components/StrokeText.vue'
+//import { mapGetters, mapState } from 'vuex'
+import Tiz from "@/components/Tiz.vue";
+import User from "@/components/link/User.vue";
+import StrokeText from "@/components/StrokeText.vue";
 
 export default {
-  name: 'Navbar',
+  name: "Navbar",
   data() {
     return {
-      date: new Date(),
-    }
+      date: new Date()
+    };
   },
   computed: {
-    ...mapGetters('auth', ['authenticated']),
-    ...mapState('auth', ['user']),
+    ...mapGetters("auth", ["authenticated"]),
+    ...mapState("auth", ["user"])
   },
   components: {
     Tiz,
     StrokeText,
-    User,
+    User
   },
   methods: {
     logout() {
-      this.$store.dispatch('auth/logout')
-      this.$router.push(this.$route.path == '/' ? '/login' : this.$route.path)
-    },
-  },
+      this.$store.dispatch("auth/logout");
+      this.$router.push(this.$route.path == "/" ? "/login" : this.$route.path);
+    }
+  }
   /* created() {
     document.body.className = 'h' + this.date.getHours()
   }, */
-}
+};
 </script>
-<style  scoped>
+<style scoped>
 .header {
   width: 100%;
   height: 78px;
@@ -223,7 +227,7 @@ export default {
 }
 
 #username {
-  font-family: 'Pixelated Verdana 12';
+  font-family: "Pixelated Verdana 12";
   font-weight: bold;
   font-size: 16px;
   padding: 0 8px 8px 0;
@@ -232,7 +236,7 @@ export default {
 }
 
 #connect {
-  font-family: 'Pixelated Verdana 12';
+  font-family: "Pixelated Verdana 12";
   font-size: 16px;
   font-weight: normal;
   color: #000;
@@ -388,7 +392,7 @@ a:hover {
 }
 
 .nav-text {
-  font-family: 'Chimboz Heavy';
+  font-family: "Chimboz Heavy";
   font-weight: normal;
   font-size: 18px;
   height: 100%;

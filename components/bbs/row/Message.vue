@@ -1,5 +1,4 @@
 <template>
-<div>
   <tr :id="message.id">
     <td class="info" valign="top">
       <Tiz
@@ -34,7 +33,8 @@
       </h2>
       <div class="head flex centered">
         <nuxt-link :to="'#' + message.id">
-          <img loading="lazy"
+          <img
+            loading="lazy"
             draggable="false"
             alt="Voir le dernier message"
             title="Voir le dernier message"
@@ -46,7 +46,8 @@
         >&nbsp;
         <h4 class="ellipsis justified title">{{ message.title }}</h4>
         &nbsp;
-        <img loading="lazy"
+        <img
+          loading="lazy"
           alt="Quote button"
           src="https://chapatizretro.com/data/content/images/bbs/icon_quote.png"
         />
@@ -61,67 +62,66 @@
   <tr v-if="separator">
     <td colspan="2" style="background: #fff"><hr /></td>
   </tr>
-  </div>
 </template>
 
 <script>
-import { format } from "date-fns";
-import { fr } from "date-fns/locale";
-import Tiz from "@/components/Tiz.vue";
-import User from "@/components/link/User.vue";
-import messageRender from "@/plugins/module/messageRender.js";
+import { format } from 'date-fns'
+import { fr } from 'date-fns/locale'
+import Tiz from '@/components/Tiz.vue'
+import User from '@/components/link/User.vue'
+import messageRender from '@/plugins/module/messageRender.js'
 
 export default {
-  name: "Message",
+  name: 'Message',
   components: {
     Tiz,
-    User
+    User,
   },
   props: {
     message: {
       required: true,
-      type: Object
+      type: Object,
     },
     separator: {
       required: false,
       default: true,
-      type: Boolean
-    }
+      type: Boolean,
+    },
   },
   computed: {
     formatMessage() {
-      return messageRender(this.message.content);
+      return messageRender(this.message.content)
     },
     formatDate() {
-      return format(new Date(this.message.date), "PPP à pp", {
+      return format(new Date(this.message.date), 'PPP à pp', {
         locale: fr,
-        addSuffix: true
-      });
-    }
+        addSuffix: true,
+      })
+    },
   },
   mounted() {
     if (this.$route.hash) {
-      this.scrollTo(this.$route.hash);
+      this.scrollTo(this.$route.hash)
     }
   },
   methods: {
     scrollTo(anchor) {
-      location.href = anchor;
-    }
-  }
-};
+      location.href = anchor
+    },
+  },
+}
 </script>
-<style >
+<style>
 // Custom checkboxes
-.markdown-body [type="checkbox"]:disabled {
+.markdown-body [type='checkbox']:disabled {
   width: 0;
   height: 0;
   filter: none !important;
 }
 
-.markdown-body [type="checkbox"]:not(:checked):before,
-.markdown-body [type="checkbox"]:checked:before {
-  content: "";
+.markdown-body [type='checkbox']:not(:checked):before,
+.markdown-body [type='checkbox']:checked:before {
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -132,13 +132,13 @@ export default {
   border-radius: 0.2em;
 }
 
-.markdown-body [type="checkbox"]:checked:before {
+.markdown-body [type='checkbox']:checked:before {
   background: #0075ff;
   border: 1px solid transparent;
 }
 
 // Markdown lists and checkboxes
-.markdown-body li input[type="checkbox"] {
+.markdown-body li input[type='checkbox'] {
   margin-left: -16px;
   position: absolute;
 }
@@ -151,7 +151,7 @@ export default {
   font-size: 18px;
 }
 </style>
-<style  scoped>
+<style scoped>
 td {
   padding: 6px;
 }

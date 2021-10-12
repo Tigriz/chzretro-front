@@ -80,8 +80,7 @@
                   src="~/assets/img/puce.svg"
                   style="transform: rotate(-90deg)"
                   :class="{ pushed: up }"
-                  @contextmenu.prevent
-                /></button
+                  @contextmenu.prevent /></button
               ><br /><button type="button">
                 <img
                   loading="lazy"
@@ -90,8 +89,7 @@
                   src="~/assets/img/puce.svg"
                   style="transform: scaleX(-1)"
                   :class="{ pushed: left }"
-                  @contextmenu.prevent
-                /></button
+                  @contextmenu.prevent /></button
               ><button id="random" type="button">
                 <img
                   loading="lazy"
@@ -99,8 +97,7 @@
                   alt="Random button"
                   title="Randomize look"
                   src="~/assets/img/home/chaparadio/stop.svg"
-                  @contextmenu.prevent
-                /></button
+                  @contextmenu.prevent /></button
               ><button type="button">
                 <img
                   loading="lazy"
@@ -108,8 +105,7 @@
                   alt="Puce"
                   src="~/assets/img/puce.svg"
                   :class="{ pushed: right }"
-                  @contextmenu.prevent
-                /></button
+                  @contextmenu.prevent /></button
               ><br /><button type="button">
                 <img
                   loading="lazy"
@@ -138,8 +134,7 @@
                 alt="Male gender"
                 title="Male gender"
                 src="~/assets/img/icon/gender/male.svg"
-                @contextmenu.prevent
-              /></button
+                @contextmenu.prevent /></button
             ><button
               type="button"
               class="pink-icon"
@@ -154,8 +149,7 @@
                 alt="Female gender"
                 title="Female gender"
                 src="~/assets/img/icon/gender/female.svg"
-                @contextmenu.prevent
-              /></button
+                @contextmenu.prevent /></button
             ><button
               type="button"
               class="pink-icon"
@@ -181,17 +175,17 @@
           <div class="nav-acc flex">
             <div @click="profile = !profile">
               <Button type="button" :class="{ active: profile }">{{
-                $t('myAccount.profileSection')
+                $t("myAccount.profileSection")
               }}</Button>
             </div>
             <div
               @click="
-                profile = !profile
-                loadInventory = true
+                profile = !profile;
+                loadInventory = true;
               "
             >
               <Button type="button" :class="{ active: !profile }">{{
-                $t('myAccount.invSection')
+                $t("myAccount.invSection")
               }}</Button>
             </div>
           </div>
@@ -270,7 +264,7 @@
                         'item1',
                         'body',
                         'item2',
-                        'shoe',
+                        'shoe'
                       ])
                     : (checked = [`${category}`])
                 "
@@ -293,22 +287,12 @@
             <div class="chest">
               <div
                 v-for="(category, name) of {
-                  item0: checked.includes('item0')
-                    ? data.items.item0
-                    : [],
+                  item0: checked.includes('item0') ? data.items.item0 : [],
                   hat: checked.includes('hat') ? data.items.hat : [],
-                  item1: checked.includes('item1')
-                    ? data.items.item1
-                    : [],
-                  body: checked.includes('body')
-                    ? data.items.body
-                    : [],
-                  item2: checked.includes('item2')
-                    ? data.items.item2
-                    : [],
-                  shoe: checked.includes('shoe')
-                    ? data.items.shoe
-                    : [],
+                  item1: checked.includes('item1') ? data.items.item1 : [],
+                  body: checked.includes('body') ? data.items.body : [],
+                  item2: checked.includes('item2') ? data.items.item2 : [],
+                  shoe: checked.includes('shoe') ? data.items.shoe : []
                 }"
                 :key="name"
                 class="category"
@@ -320,7 +304,7 @@
                   type="button"
                   class="item"
                   :class="{
-                    active: data.look[name] == item,
+                    active: data.look[name] == item
                   }"
                   @click="$emit('updateItem', name, item)"
                   @mouseover="info = name + ' ' + item"
@@ -376,26 +360,26 @@
   </Card>
 </template>
 <script>
-import Tiz from '@/components/Tiz.vue'
-import Emotes from '@/components/Emotes.vue'
+import Tiz from "@/components/Tiz.vue";
+import Emotes from "@/components/Emotes.vue";
 
 export default {
-  name: 'Cabin',
+  name: "Cabin",
   components: {
     Tiz,
-    Emotes,
+    Emotes
   },
   props: {
     data: {
       required: true,
-      type: Object,
+      type: Object
     },
     motto: { type: String },
     website: { type: String },
     centrea: { type: String },
     centreb: { type: String },
     centrec: { type: String },
-    centred: { type: String },
+    centred: { type: String }
   },
   data() {
     return {
@@ -405,17 +389,17 @@ export default {
       down: false,
       right: false,
       left: false,
-      info: '',
-      checked: ['item0', 'hat', 'item1', 'body', 'item2', 'shoe'],
-      gender: this.data.gender,
-    }
+      info: "",
+      checked: ["item0", "hat", "item1", "body", "item2", "shoe"],
+      gender: this.data.gender
+    };
   },
   methods: {
     submit() {
-      console.log('Envoyé!')
-    },
-  },
-}
+      console.log("Envoyé!");
+    }
+  }
+};
 </script>
 <style>
 .cabin-scene .tiz {
@@ -431,9 +415,9 @@ export default {
   align-items: center;
 }
 
-input[type='text'] {
+input[type="text"] {
   text-align: center;
-  font-family: 'Pixelated Verdana 10';
+  font-family: "Pixelated Verdana 10";
   font-size: 10px;
   color: #2a5380;
   border: 2px solid;
@@ -445,7 +429,7 @@ input[type='text'] {
 }
 
 li::marker {
-  font-family: 'Chimboz Heavy';
+  font-family: "Chimboz Heavy";
   font-size: 18px;
   color: #2a5380;
 }
@@ -459,7 +443,7 @@ li::marker {
 }
 
 h3 {
-  font-family: 'Chimboz Heavy';
+  font-family: "Chimboz Heavy";
   font-weight: normal;
   color: #fff;
   font-size: 18px;
@@ -522,7 +506,7 @@ h3 {
 .cabin-scene:before {
   background: linear-gradient(to bottom, #240026, transparent);
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   width: 100%;
@@ -533,7 +517,7 @@ h3 {
 }
 .cabin-scene:after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   width: 100%;
@@ -692,12 +676,12 @@ h3 {
   vertical-align: middle;
 }
 
-.item img[src*='cross'],
-.item img[src*='loading'] {
+.item img[src*="cross"],
+.item img[src*="loading"] {
   transform: translate(0px, 0px);
 }
 
-.item img[src*='loading'] {
+.item img[src*="loading"] {
   width: 100%;
 }
 
@@ -718,7 +702,7 @@ h3 {
 }
 
 .info {
-  font-family: 'Pixelated Verdana 10';
+  font-family: "Pixelated Verdana 10";
   font-size: 10px;
   display: flex;
   justify-content: center;
@@ -747,7 +731,7 @@ h3 {
 }
 
 .gender {
-  font-family: 'Chimboz Heavy';
+  font-family: "Chimboz Heavy";
   color: #fff;
   font-size: 15px;
 }
