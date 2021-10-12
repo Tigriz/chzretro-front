@@ -1,4 +1,4 @@
-import auth from "./module/auth.js";
+/*import auth from "./module/auth.js";
 
 const store = {
   modules: {
@@ -7,3 +7,4 @@ const store = {
 };
 
 export default store;
+*/
